@@ -1,0 +1,74 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+.top-right button {
+    margin-left: 10px;
+    padding: 5px 10px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+aside {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    background: #f4f4f4;
+    padding: 10px;
+    display: none; /* 기본적으로 숨김 */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+}
+
+aside ul li {
+    margin: 10px 0;
+}
+
+main {
+    margin-left: 220px;
+    padding: 20px;
+}
+
+.calendar, .reviews {
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.reviews ul {
+    list-style: none;
+    padding: 0;
+}
+
+.reviews li {
+    margin-bottom: 15px;
+}
+
+.reviews .meta {
+    font-size: 0.8em;
+    color: gray;
+}

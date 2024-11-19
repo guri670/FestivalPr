@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전국 축제 달력</title>
+    <link href="../css/main.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 상단 부분 -->
+    <header>
+        <div class="logo">🎉 전국 축제 달력</div>
+        <div class="top-right">
+            <button id="login-btn">로그인</button>
+            <button id="sidebar-btn">☰</button>
+        </div>
+    </header>
+
+    <!-- 사이드바 -->
+    <aside id="sidebar">
+        <ul>
+            <li><button id="login-menu">로그인</button></li>
+            <li><button id="signup-menu">회원가입</button></li>
+            <li><button id="calendar-menu">달력보기</button></li>
+            <li>
+                <button>전국 축제 목록</button>
+                <ul>
+                    <li>서울</li>
+                    <li>부산</li>
+                    <li>경기도 인천</li>
+                    <li>강원</li>
+                    <li>충청 대전</li>
+                    <li>전라 광주</li>
+                    <li>경상 대구</li>
+                    <li>제주</li>
+                </ul>
+            </li>
+            <li><button>축제 후기</button></li>
+            <li><button>문의 페이지</button></li>
+        </ul>
+    </aside>
+
+    <!-- 메인 컨텐츠 -->
+    <main>
+        <section class="calendar">
+            <h2>축제 달력</h2>
+            <div id="calendar-container">외부 API로 달력 표시</div>
+        </section>
+        <section class="reviews">
+            <h2>최근 후기</h2>
+            <ul>
+                <li>
+                    <p><strong>제목:</strong> 너무 즐거웠어요!</p>
+                    <p>내용: 정말 멋진 축제였습니다. 강추!</p>
+                    <p class="meta">작성자 | 게시일</p>
+                </li>
+                <li>
+                    <p><strong>제목:</strong> 다시 가고 싶어요</p>
+                    <p>내용: 다양한 볼거리와 맛있는 음식!</p>
+                    <p class="meta">작성자 | 게시일</p>
+                </li>
+                <!-- 추가 후기 3개 -->
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
