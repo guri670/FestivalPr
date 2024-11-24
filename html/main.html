@@ -6,7 +6,7 @@
     <title>전국 축제 달력</title>
     <link href="../css/main.css" rel="stylesheet">
 </head>
-<body>
+<body> 
     <!-- 상단 부분 -->
     <header>
         <div class="logo">🎉 전국 축제 달력</div>
@@ -15,6 +15,16 @@
             <button id="sidebar-btn">☰</button>
         </div>
     </header>
+    <section id="region-section">
+        <h2>지역별 축제</h2>
+        <button onclick="showRegionCalendar('대전')">대전</button>
+        <button onclick="showRegionCalendar('서울')">서울</button>
+        <button onclick="showRegionCalendar('부산')">부산</button>
+        <div id="region-calendar"></div>
+    </section>
+</main>
+
+<script src="/script.js"></script>
 
     <!-- 사이드바 -->
     <aside id="sidebar">
