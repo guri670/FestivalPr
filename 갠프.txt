@@ -46,4 +46,49 @@
 3-5 축제후기
 3-6 문의페이지
 
+메인페이지
+Main
+마이페이지
+MyPage(sdiebar)
+회원가입페이지
+LoginJoin
+로그인페이지
+Login
+아이디/비밀번호찾기 페이지
+LoginFindIdPwd
 
+후기페이지(리스트)
+ReviewList
+후기페이지(글쓰기)
+ReviewWrite
+후기페이지(상세보기)
+ReviewContents
+후기페이지(수정) + 삭제 
+ReviewModify + deleteAction
+
+축제페이지(리스트-전국)
+FestiList_All
+축제페이지(리스트-지역별)
+FestiList_Region_Soeul
+FestiList_Region_Busan
+FestiList_Region_Gyeonggi-Inchone
+FestiList_Region_Cungcheong-Daejeon
+FestiList_Region_Jeonra-Gwangju
+FestiList_Region_Gyeongsang-Daegu
+FestiList_Region_Gangwon
+FestiList_Region_Jeju
+축제페이지(상세보기)
+FestiContents
+축제페이지(글쓰기-관리자만 접근가능)
+FestiWrite
+축제페이지(수정-관리자만 접근가능) + 삭제
+FestiModify + deleteAction
+
+문의페이지(리스트)
+QnAList
+문의페이지(글쓰기)
+QnAWrite
+문의페이지(상세보기)
+QnAContents
+
+기본페이지 15장 + 지역별 축제리스트 8장 23장..

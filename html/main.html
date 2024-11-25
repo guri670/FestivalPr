@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>전국 축제 달력</title>
     <link href="../css/main.css" rel="stylesheet">
+    <style>
+        #sidebar {
+            display: none; /* 기본적으로 사이드바를 숨깁니다 */
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 250px;
+            height: 100%;
+            background: #f4f4f4;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            z-index: 1000;
+        }
+        #sidebar.visible {
+            display: block; /* visible 클래스가 있을 때 사이드바를 표시합니다 */
+        }
+    </style>
 </head>
 <body> 
     <!-- 상단 부분 -->
@@ -15,6 +31,7 @@
             <button id="sidebar-btn">☰</button>
         </div>
     </header>
+    
     <section id="region-section">
         <h2>지역별 축제</h2>
         <button onclick="showRegionCalendar('대전')">대전</button>
@@ -54,7 +71,83 @@
     <main>
         <section class="calendar">
             <h2>축제 달력</h2>
-            <div id="calendar-container">외부 API로 달력 표시</div>
+            <div id="calendar-container">
+                <div class="navigation">
+                    <button id="prev-month">이전</button>
+                    <span id="current-month"></span>
+                    <button id="next-month">다음</button>
+                </div>
+                <table id="calendar">
+                    <!-- JS로 동적으로 생성 -->
+                </table>
+            </div>
+        </section>
+        <script>
+            const eventData = [
+                { region: "FestiList_Region_Soeul", title: "서울 불꽃축제", start: "2024-11-25", end: "2024-11-29" },
+                { region: "FestiList_Region_Busan", title: "부산 음악 페스티벌", start: "2024-11-27", end: "2024-11-28" },
+                // 추가 데이터
+            ];
+    
+            let currentMonth = new Date();
+    
+            function renderCalendar(month) {
+                const year = month.getFullYear();
+                const monthIndex = month.getMonth();
+                const firstDay = new Date(year, monthIndex, 1).getDay();
+                const lastDate = new Date(year, monthIndex + 1, 0).getDate();
+    
+                document.getElementById('current-month').innerText = `${year}년 ${monthIndex + 1}월`;
+    
+                const calendarTable = document.getElementById('calendar');
+                calendarTable.innerHTML = `<tr>
+                    <th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
+                </tr>`;
+    
+                let row = document.createElement('tr');
+                for (let i = 0; i < firstDay; i++) {
+                    row.appendChild(document.createElement('td'));
+                }
+    
+                for (let date = 1; date <= lastDate; date++) {
+                    const cell = document.createElement('td');
+                    const dayNumber = document.createElement('div');
+                    dayNumber.className = 'day-number';
+                    dayNumber.innerText = date;
+    
+                    const dateString = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
+                    eventData.filter(event => date >= new Date(event.start) && date <= new Date(event.end)).forEach(event => {
+                        const eventDiv = document.createElement('div');
+                        eventDiv.className = `event ${event.region}`;
+                        eventDiv.innerText = event.title;
+                        cell.appendChild(eventDiv);
+                    });
+    
+                    cell.appendChild(dayNumber);
+                    row.appendChild(cell);
+    
+                    if ((firstDay + date) % 7 === 0) {
+                        calendarTable.appendChild(row);
+                        row = document.createElement('tr');
+                    }
+                }
+                if (row.children.length > 0) {
+                    calendarTable.appendChild(row);
+                }
+            }
+    
+            document.getElementById('prev-month').addEventListener('click', () => {
+                currentMonth.setMonth(currentMonth.getMonth() - 1);
+                renderCalendar(currentMonth);
+            });
+    
+            document.getElementById('next-month').addEventListener('click', () => {
+                currentMonth.setMonth(currentMonth.getMonth() + 1);
+                renderCalendar(currentMonth);
+            });
+    
+            renderCalendar(currentMonth);
+        </script>
         </section>
         <section class="reviews">
             <h2>최근 후기</h2>
@@ -73,5 +166,7 @@
             </ul>
         </section>
     </main>
+
+    
 </body>
 </html>
