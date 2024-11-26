@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
+    <link rel="stylesheet" href="/test/css.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header>
+        <a href="main.html" class="logo">축제당</a>
+        <nav>
+            <a href="signup.html">회원가입</a>
+        </nav>
+    </header>
+
+    <!-- 로그인 폼 -->
+    <div class="container">
+        <div class="card">
+            <h2 class="text-center">로그인</h2>
+            <form id="login-form">
+                <!-- 아이디 -->
+                <label for="username">아이디</label>
+                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required>
+
+                <!-- 비밀번호 -->
+                <label for="password">비밀번호</label>
+                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
+
+                <!-- 로그인 버튼 -->
+                <div class="text-center mt-10">
+                    <button type="submit">로그인</button>
+                </div>
+
+                <!-- 회원가입 링크 -->
+                <p class="text-center mt-10">
+                    계정이 없으신가요? <a href="signup.html">회원가입</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2024 축제당. All rights reserved.</p>
+    </footer>
+</body>
+</html>

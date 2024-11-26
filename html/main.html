@@ -1,72 +1,57 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
     <title>전국 축제 달력</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbars-offcanvas/">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/main.css" rel="stylesheet">
-    <style>
-        #sidebar {
-            display: none; /* 기본적으로 사이드바를 숨깁니다 */
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 250px;
-            height: 100%;
-            background: #f4f4f4;
-            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
-            z-index: 1000;
-        }
-        #sidebar.visible {
-            display: block; /* visible 클래스가 있을 때 사이드바를 표시합니다 */
-        }
-    </style>
+
+
 </head>
-<body> 
+<body>
     <!-- 상단 부분 -->
     <header>
         <div class="logo">🎉 전국 축제 달력</div>
         <div class="top-right">
             <button id="login-btn">로그인</button>
-            <button id="sidebar-btn">☰</button>
+            <button id="sidebar-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg> </button>
         </div>
     </header>
-    
     <section id="region-section">
-        <h2>지역별 축제</h2>
-        <button onclick="showRegionCalendar('대전')">대전</button>
-        <button onclick="showRegionCalendar('서울')">서울</button>
-        <button onclick="showRegionCalendar('부산')">부산</button>
         <div id="region-calendar"></div>
     </section>
-</main>
-
-<script src="/script.js"></script>
-
+    </main>
     <!-- 사이드바 -->
-    <aside id="sidebar">
-        <ul>
-            <li><button id="login-menu">로그인</button></li>
-            <li><button id="signup-menu">회원가입</button></li>
-            <li><button id="calendar-menu">달력보기</button></li>
-            <li>
-                <button>전국 축제 목록</button>
-                <ul>
-                    <li>서울</li>
-                    <li>부산</li>
-                    <li>경기도 인천</li>
-                    <li>강원</li>
-                    <li>충청 대전</li>
-                    <li>전라 광주</li>
-                    <li>경상 대구</li>
-                    <li>제주</li>
+    <nav class="navbar navbar-dark bg-dark flex-column" id="sidebar">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" href="Member/Login.html" id="login-menu">로그인</a></li>
+            <li class="nav-item"><a class="nav-link" href="Member/SingUp.html" id="signup-menu">회원가입</a></li>
+            <li class="nav-item"><a class="nav-link" href="#" id="calendar-menu">달력보기</a></li>
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" href="#" id="festival-menu" data-bs-toggle="dropdown" aria-expanded="false">전국 축제 목록</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">서울</a></li>
+                    <li><a class="dropdown-item" href="#">부산</a></li>
+                    <li><a class="dropdown-item" href="#">경기도 인천</a></li>
+                    <li><a class="dropdown-item" href="#">강원</a></li>
+                    <li><a class="dropdown-item" href="#">충청 대전</a></li>
+                    <li><a class="dropdown-item" href="#">전라 광주</a></li>
+                    <li><a class="dropdown-item" href="#">경상 대구</a></li>
+                    <li><a class="dropdown-item" href="#">제주</a></li>
                 </ul>
             </li>
-            <li><button>축제 후기</button></li>
-            <li><button>문의 페이지</button></li>
+            <li class="nav-item"><a class="nav-link" href="#">축제 후기</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">문의 페이지</a></li>
         </ul>
-    </aside>
-
+    </nav>
     <!-- 메인 컨텐츠 -->
     <main>
         <section class="calendar">
@@ -88,33 +73,33 @@
                 { region: "FestiList_Region_Busan", title: "부산 음악 페스티벌", start: "2024-11-27", end: "2024-11-28" },
                 // 추가 데이터
             ];
-    
+
             let currentMonth = new Date();
-    
+
             function renderCalendar(month) {
                 const year = month.getFullYear();
                 const monthIndex = month.getMonth();
                 const firstDay = new Date(year, monthIndex, 1).getDay();
                 const lastDate = new Date(year, monthIndex + 1, 0).getDate();
-    
+
                 document.getElementById('current-month').innerText = `${year}년 ${monthIndex + 1}월`;
-    
+
                 const calendarTable = document.getElementById('calendar');
                 calendarTable.innerHTML = `<tr>
                     <th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th>
                 </tr>`;
-    
+
                 let row = document.createElement('tr');
                 for (let i = 0; i < firstDay; i++) {
                     row.appendChild(document.createElement('td'));
                 }
-    
+
                 for (let date = 1; date <= lastDate; date++) {
                     const cell = document.createElement('td');
                     const dayNumber = document.createElement('div');
                     dayNumber.className = 'day-number';
                     dayNumber.innerText = date;
-    
+
                     const dateString = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(date).padStart(2, '0')}`;
                     eventData.filter(event => date >= new Date(event.start) && date <= new Date(event.end)).forEach(event => {
                         const eventDiv = document.createElement('div');
@@ -122,10 +107,10 @@
                         eventDiv.innerText = event.title;
                         cell.appendChild(eventDiv);
                     });
-    
+
                     cell.appendChild(dayNumber);
                     row.appendChild(cell);
-    
+
                     if ((firstDay + date) % 7 === 0) {
                         calendarTable.appendChild(row);
                         row = document.createElement('tr');
@@ -135,17 +120,17 @@
                     calendarTable.appendChild(row);
                 }
             }
-    
+
             document.getElementById('prev-month').addEventListener('click', () => {
                 currentMonth.setMonth(currentMonth.getMonth() - 1);
                 renderCalendar(currentMonth);
             });
-    
+
             document.getElementById('next-month').addEventListener('click', () => {
                 currentMonth.setMonth(currentMonth.getMonth() + 1);
                 renderCalendar(currentMonth);
             });
-    
+
             renderCalendar(currentMonth);
         </script>
         </section>
@@ -167,6 +152,7 @@
         </section>
     </main>
 
-    
+
 </body>
+
 </html>

@@ -12,6 +12,7 @@ header {
 }
 
 main {
+    margin-left: 240px; /* 사이드바 폭 + 여유 공간 */
     padding: 20px;
 }
 
@@ -47,25 +48,38 @@ button:hover {
     cursor: pointer;
 }
 
-aside {
+#sidebar {
     position: fixed;
-    left: 0;
     top: 0;
-    width: 200px;
+    left: 0;
+    width: 220px;
     height: 100%;
-    background: #f4f4f4;
-    padding: 10px;
-    display: none; /* 기본적으로 숨김 */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    background-color: #343a40; /* navbar-dark bg-dark 색상 */
+    padding: 10px 0;
+    z-index: 1000;
 }
 
-aside ul {
-    list-style: none;
-    padding: 0;
+#sidebar .nav-link {
+    color: white;
+    padding: 10px 20px;
 }
 
-aside ul li {
-    margin: 10px 0;
+#sidebar .nav-link:hover {
+    background-color: #495057; /* hover 시 강조 색상 */
+    color: white;
+}
+
+#sidebar .dropdown-menu {
+    background-color: #343a40;
+}
+
+#sidebar .dropdown-item {
+    color: white;
+}
+
+#sidebar .dropdown-item:hover {
+    background-color: #495057;
+    color: white;
 }
 
 main {
@@ -138,3 +152,168 @@ main {
 .FestiList_Region_Gyeongsang_Daegu { background-color: orange; }
 .FestiList_Region_Gangwon { background-color: brown; }
 .FestiList_Region_Jeju { background-color: yellow; color: black; }
+
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  .b-example-divider {
+    width: 100%;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  }
+
+  .b-example-vr {
+    flex-shrink: 0;
+    width: 1.5rem;
+    height: 100vh;
+  }
+
+  .bi {
+    vertical-align: -.125em;
+    fill: currentColor;
+  }
+
+  .nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+  }
+
+  .nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .btn-bd-primary {
+    --bd-violet-bg: #712cf9;
+    --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+    --bs-btn-font-weight: 600;
+    --bs-btn-color: var(--bs-white);
+    --bs-btn-bg: var(--bd-violet-bg);
+    --bs-btn-border-color: var(--bd-violet-bg);
+    --bs-btn-hover-color: var(--bs-white);
+    --bs-btn-hover-bg: #6528e0;
+    --bs-btn-hover-border-color: #6528e0;
+    --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+    --bs-btn-active-color: var(--bs-btn-hover-color);
+    --bs-btn-active-bg: #5a23c8;
+    --bs-btn-active-border-color: #5a23c8;
+  }
+
+  .bd-mode-toggle {
+    z-index: 1500;
+  }
+
+  .bd-mode-toggle .dropdown-menu .active .bi {
+    display: block !important;
+  }
+
+  body {
+    padding-bottom: 20px;
+  }
+  
+  .navbar {
+    margin-bottom: 20px;
+  }
+  
+  footer {
+    width : 100%;
+    height : 100px;
+    bottom : 0px;
+    position: absolute;
+    border-top : 1px solid #4b2d23;
+    padding-top : 15px;
+    color: #808080;
+    font-size: 11px;
+  }
+
+  footer a{
+    display: inline-block;
+    margin: 0 20px 10px 20px;
+    color: #808080; font-size : 11px;
+  }
+
+  footer a:visited{
+    color: #808080;
+  }
+
+  footer p{
+    margin-top:0;
+    margin-bottom: 0;
+  }
+
+  footer p span{
+    display: inline-block;
+    margin-left:20px;
+  }
+
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 입력 필드 스타일 */
+input[type="text"], input[type="password"], select {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+form .mb-3 {
+    margin-bottom: 20px;
+}
+
+/* 비밀번호 일치 체크 텍스트 */
+#password-match {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+/* 확인 버튼 */
+button[type="submit"] {
+    width: 48%;
+}
+
+/* 취소 버튼 */
+button[type="reset"] {
+    width: 48%;
+}
+
+/* 이메일 도메인 선택 */
+.input-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 상단 로고 */
+.text-center img {
+    width: 120px;
+}
+
+/* 작은 설명 텍스트 */
+.text-muted {
+    font-size: 12px;
+}

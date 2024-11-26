@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/test/css.css">
+    <title>헤더 (로그인하지 않음)</title>
+</head>
+<body>
+    <header>
+        <!-- 로고 -->
+        <a href="index.html" class="logo">축제당</a>
+
+        <!-- 로그인 / 회원가입 -->
+        <nav>
+            <a href="login.html">로그인</a>
+            <a href="signup.html">회원가입</a>
+        </nav>
+
+        <!-- 사이드바 버튼 -->
+        <button id="sidebar-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+            </svg>
+        </button>
+    </header>
+
+    <!-- 사이드바 -->
+    <div id="sidebar" class="hidden">
+        <button id="sidebar-close-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0M11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5"/>
+            </svg>
+        </button>
+        <ul>
+            <li>
+                <a href="#" id="festival-info-btn">
+                    축제 정보 페이지
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                        <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                    </svg>
+                </a>
+                <!-- 지역 리스트 -->
+                <ul id="region-list" class="hidden">
+                    <li><a href="region.html?region=서울">서울</a></li>
+                    <li><a href="region.html?region=부산">부산</a></li>
+                    <li><a href="region.html?region=대구">대구</a></li>
+                    <li><a href="region.html?region=광주">광주</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script src="sidebar.js"></script>
+</body>
+</html>
