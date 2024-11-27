@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/header.footer.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!-- 로고 부분 -->
+                <a class="navbar-brand" href="main.html">
+                    <img src="../img/Festi4U-removebg-preview.png" alt="로고" width="100" height="auto">
+                </a>
+
+                <!-- 로그인 후 메시지 -->
+                <div id="logged-in" class="d-flex justify-content-end">
+                    <span id="welcome-message">홍길동님 환영합니다 | <a href="header.html">로그아웃</a></span>
+                </div>
+
+                <!-- 사이드바 버튼 -->
+                <button id="sidebar-btn" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 사이드바 -->
+    <div id="sidebar">
+        <button id="sidebar-close-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0M11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5" />
+            </svg>
+        </button>
+        <ul>
+            <li><a href="/html/Member/Login.html">로그인</li>
+            <li><a href="/html/Member/Singup.html">회원가입</a></li>
+            <li><a href="festivals.html">전국 축제 목록</a></li>
+            <li><a href="reviews.html">축제 후기</a></li>
+            <li><a href="contact.html">문의 하기</a></li>
+        </ul>
+    </div>
+    </header>
+    <main>
+        <section class="calendar">
+            <h2>축제 달력</h2>
+            <div id="calendar">
+                <div class="navigation">
+                    <button id="prev-month">이전</button>
+                    <span id="current-month"></span>
+                    <button id="next-month">다음</button>
+                </div>
+                <table id="calendar">
+                    <!-- JS로 동적으로 생성 -->
+                </table>
+            </div>
+        </section>
+        <script>
+            
+        </script>
+    </main>
+    <section class="reviews">
+        <h2>최근 후기</h2>
+        <ul>
+            <li>
+                <p><strong>제목:</strong> 너무 즐거웠어요!</p>
+                <p>내용: 정말 멋진 축제였습니다. 강추!</p>
+                <p class="meta">작성자 | 게시일</p>
+            </li>
+            <li>
+                <p><strong>제목:</strong> 다시 가고 싶어요</p>
+                <p>내용: 다양한 볼거리와 맛있는 음식!</p>
+                <p class="meta">작성자 | 게시일</p>
+            </li>
+            <!-- 추가 후기 3개 -->
+        </ul>
+    </section>
+    <footer>
+        <nav>
+            <a herf="https://velog.io/@guri670/posts" target="_blank">Velog</a> |
+            <a herf="https://github.com/guri670" target="_blank">github</a>
+        </nav>
+        <p>
+            <span>만든이 : guri</span>
+            <br />
+            <span>이메일 : kory0484@gmail.com</span>
+            <br>
+            <span>Copyright 2024. guri. All Rights reserved.</span>
+        </p>
+    </footer>
+
+    <script src="sidebar.js"></script>
+
+</body>
+
+</html>

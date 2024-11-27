@@ -48,39 +48,6 @@ button:hover {
     cursor: pointer;
 }
 
-#sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 220px;
-    height: 100%;
-    background-color: #343a40; /* navbar-dark bg-dark 색상 */
-    padding: 10px 0;
-    z-index: 1000;
-}
-
-#sidebar .nav-link {
-    color: white;
-    padding: 10px 20px;
-}
-
-#sidebar .nav-link:hover {
-    background-color: #495057; /* hover 시 강조 색상 */
-    color: white;
-}
-
-#sidebar .dropdown-menu {
-    background-color: #343a40;
-}
-
-#sidebar .dropdown-item {
-    color: white;
-}
-
-#sidebar .dropdown-item:hover {
-    background-color: #495057;
-    color: white;
-}
 
 main {
     margin-left: 220px;
@@ -238,37 +205,6 @@ main {
     margin-bottom: 20px;
   }
   
-  footer {
-    width : 100%;
-    height : 100px;
-    bottom : 0px;
-    position: absolute;
-    border-top : 1px solid #4b2d23;
-    padding-top : 15px;
-    color: #808080;
-    font-size: 11px;
-  }
-
-  footer a{
-    display: inline-block;
-    margin: 0 20px 10px 20px;
-    color: #808080; font-size : 11px;
-  }
-
-  footer a:visited{
-    color: #808080;
-  }
-
-  footer p{
-    margin-top:0;
-    margin-bottom: 0;
-  }
-
-  footer p span{
-    display: inline-block;
-    margin-left:20px;
-  }
-
   .container {
     max-width: 600px;
     margin: 0 auto;

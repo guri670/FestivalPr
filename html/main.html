@@ -6,52 +6,60 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.122.0">
-    <title>전국 축제 달력</title>
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/header.footer.css" rel="stylesheet">
+    <title>전축당</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/navbars-offcanvas/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../css/main.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
 </head>
+
 <body>
     <!-- 상단 부분 -->
     <header>
-        <div class="logo">🎉 전국 축제 달력</div>
-        <div class="top-right">
-            <button id="login-btn">로그인</button>
-            <button id="sidebar-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
-            </svg> </button>
-        </div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <!-- 로고 부분 -->
+                <a class="navbar-brand" href="main.html">
+                    <img src="../img/Festi4U-removebg-preview.png" alt="로고" width="100" height="auto">
+                </a>
+
+                <!-- 로그인 후 메시지 -->
+                <div id="logged-in" class="d-flex justify-content-end">
+                    <span id="welcome-message">홍길동님 환영합니다 | <a href="header.html" <!--LogoutAction" -->로그아웃</a></span>
+                </div>
+
+                <!-- 사이드바 버튼 -->
+                <button id="sidebar-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
     </header>
-    <section id="region-section">
-        <div id="region-calendar"></div>
-    </section>
     </main>
     <!-- 사이드바 -->
-    <nav class="navbar navbar-dark bg-dark flex-column" id="sidebar">
-        <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link" href="Member/Login.html" id="login-menu">로그인</a></li>
-            <li class="nav-item"><a class="nav-link" href="Member/SingUp.html" id="signup-menu">회원가입</a></li>
-            <li class="nav-item"><a class="nav-link" href="#" id="calendar-menu">달력보기</a></li>
-            <li class="nav-item">
-                <a class="nav-link dropdown-toggle" href="#" id="festival-menu" data-bs-toggle="dropdown" aria-expanded="false">전국 축제 목록</a>
-                <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="#">서울</a></li>
-                    <li><a class="dropdown-item" href="#">부산</a></li>
-                    <li><a class="dropdown-item" href="#">경기도 인천</a></li>
-                    <li><a class="dropdown-item" href="#">강원</a></li>
-                    <li><a class="dropdown-item" href="#">충청 대전</a></li>
-                    <li><a class="dropdown-item" href="#">전라 광주</a></li>
-                    <li><a class="dropdown-item" href="#">경상 대구</a></li>
-                    <li><a class="dropdown-item" href="#">제주</a></li>
-                </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="#">축제 후기</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">문의 페이지</a></li>
+    <div id="sidebar">
+        <button id="sidebar-close-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0M11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5" />
+            </svg>
+        </button>
+        <ul>
+            <li><span id="sidebar-nickname">홍길동</span>님 환영합니다</li>
+            <li><a href="mypage.html">마이페이지</a></li>
+            <li><a href="festivals.html">전국 축제 목록</a></li>
+            <li><a href="reviews.html">축제 후기</a></li>
+            <li><a href="contact.html">문의 하기</a></li>
         </ul>
-    </nav>
+    </div>
     <!-- 메인 컨텐츠 -->
     <main>
         <section class="calendar">
@@ -132,6 +140,22 @@
             });
 
             renderCalendar(currentMonth);
+            // 사이드바 열기
+            document.getElementById('sidebar-btn').addEventListener('click', () => {
+                document.getElementById('sidebar').classList.add('active');
+            });
+
+            // 사이드바 닫기
+            document.getElementById('sidebar-close-btn').addEventListener('click', () => {
+                document.getElementById('sidebar').classList.remove('active');
+            });
+
+            // 사이드바 외부 클릭 시 닫히도록 설정
+            window.addEventListener('click', (e) => {
+                if (!document.getElementById('sidebar').contains(e.target) && !document.getElementById('sidebar-btn').contains(e.target)) {
+                    document.getElementById('sidebar').classList.remove('active');
+                }
+            });
         </script>
         </section>
         <section class="reviews">
@@ -151,8 +175,19 @@
             </ul>
         </section>
     </main>
-
-
+    <footer>
+        <nav>
+            <a herf="https://velog.io/@guri670/posts" target="_blank">Velog</a> |
+            <a herf="https://github.com/guri670" target="_blank">github</a>
+        </nav>
+        <p>
+            <span>만든이 : guri</span>
+            <br/>
+            <span>이메일 : kory0484@gmail.com</span>
+            <br>
+            <span>Copyright 2024. guri. All Rights reserved.</span>
+        </p>
+    </footer>
 </body>
 
 </html>

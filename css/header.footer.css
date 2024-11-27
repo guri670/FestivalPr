@@ -49,18 +49,10 @@
 }
 
 /* 로그인 후 메시지 스타일 */
-#logged-in {
-  position: absolute;
-  top: 50%;
-  right: 1.5cm; /* 사이드바 버튼에서 1.5cm 정도 떨어지도록 설정 */
-  transform: translateY(-50%);
-  font-size: 16px;
-}
 footer {
   width: 100%;
   height: 100px;
   bottom: 0px;
-  position: absolute;
   border-top: 1px solid #4b2d23;
   padding-top: 15px;
   color: #808080;
@@ -86,4 +78,143 @@ footer p {
 footer p span {
   display: inline-block;
   margin-left: 20px;
+}
+/* 메인 섹션 스타일 */
+main {
+  margin-left: 250px; /* 사이드바의 너비만큼 왼쪽 여백을 둠 */
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* 축제 달력 섹션 */
+.calendar {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calendar h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.calendar .navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.calendar .navigation button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #4b2d23;
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.calendar .navigation button:hover {
+  background-color: #3e251b;
+}
+
+/* 달력 테이블 */
+#calendar {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+#calendar th, #calendar td {
+  text-align: center;
+  padding: 15px;
+  border: 1px solid #ddd;
+}
+
+#calendar th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+#calendar td {
+  cursor: pointer;
+}
+
+#calendar td:hover {
+  background-color: #f0f0f0;
+}
+
+/* 최근 후기 섹션 */
+.reviews {
+  margin-top: 40px;
+}
+
+.reviews h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.reviews ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reviews ul li {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+.reviews ul li p {
+  margin: 5px 0;
+}
+
+.reviews ul li .meta {
+  color: #808080;
+  font-size: 12px;
+  margin-top: 10px;
+}
+
+/* 추가 스타일 */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #333;
+}
+
+a {
+  color: #4b2d23;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#sidebar-btn {
+  display: none;
+}
+
+/* 화면 크기가 좁을 때 사이드바 버튼 표시 */
+@media (max-width: 768px) {
+  #sidebar-btn {
+    display: inline-block;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+  }
+
+  main {
+    margin-left: 0;
+  }
 }
