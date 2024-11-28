@@ -1,49 +1,102 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로그인</title>
-    <link rel="stylesheet" href="/test/css.css">
-</head>
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="/html2/css/css.css" rel="stylesheet">
+    </head>
+
 <body>
-    <!-- 헤더 -->
-    <header>
-        <a href="main.html" class="logo">축제당</a>
-        <nav>
-            <a href="signup.html">회원가입</a>
-        </nav>
-    </header>
-
-    <!-- 로그인 폼 -->
+    <div class="b-example-divider"></div>
     <div class="container">
-        <div class="card">
-            <h2 class="text-center">로그인</h2>
-            <form id="login-form">
-                <!-- 아이디 -->
-                <label for="username">아이디</label>
-                <input type="text" id="username" name="username" placeholder="아이디를 입력하세요" required>
+        <header
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <div class="col-md-3 mb-2 mb-md-0">
+                <a href="/html2/index.html" class="d-inline-flex link-body-emphasis text-decoration-none">전국 축제를 당신에게
+                    <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                </a>
+            </div>
 
-                <!-- 비밀번호 -->
-                <label for="password">비밀번호</label>
-                <input type="password" id="password" name="password" placeholder="비밀번호를 입력하세요" required>
+            <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="/html2/index.html" class="nav-link px-2 link-secondary">Home</a></li>
+                <li><a href="/html2/festival/FestivalList.html" class="nav-link px-2">Festival Info</a></li>
+                <li><a href="/html2/review/ReviewList.html" class="nav-link px-2">Festival Review</a></li>
+                <li><a href="/html2/member/MyPage.html" class="nav-link px-2">MyPage</a></li>
+                <li><a href="/html2/qna/QnAList.html" class="nav-link px-2">QnA</a></li>
+            </ul>
 
-                <!-- 로그인 버튼 -->
-                <div class="text-center mt-10">
-                    <button type="submit">로그인</button>
+
+            <div class="col-md-3 text-end">
+                <button type="button" class="btn btn-outline-primary me-2"><a
+                        href="/html2/member/Login.html">Login</a></button>
+                <button type="button" class="btn btn-primary"><a href="/html2/member/Singup.html"
+                        class="listA">Sign-up</a></button>
+            </div>
+        </header>
+        <main>
+            <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1"
+                role="dialog" id="modalSignin">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content rounded-4 shadow">
+                        <div class="modal-header p-5 pb-4 border-bottom-0 loginBoxColor ">
+                            <div class="alienCenter">
+                                <img src="../resources/img/titlelogo.png" class="d-block w-50 h-25">
+                            </div>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+
+                        <div class="modal-body form-signin w-100 m-auto p-5 pt-0 loginBoxColor">
+                            <form class="">
+                                <div class="form-floating loginform mt-4 ">
+                                    <input type="email" class="form-control rounded-top-3 rounded-bottom-0"
+                                        id="floatingInput" placeholder="name@example.com"> <label
+                                        for="floatingInput">아이디</label>
+                                </div>
+                                <div class="form-floating mb-5 loginform ">
+                                    <input type="password" class="form-control rounded-top-0 rounded-bottom-3"
+                                        id="floatingPassword" placeholder="Password"> <label
+                                        for="floatingPassword">비밀번호</label>
+                                </div>
+
+                                <div class="mb-5 ">
+                                    <button class=" py-2 mb-2 btn btn-outline-light rounded-3 loginBtnW-32"
+                                        type="submit">아이디 찾기</button>
+                                    <button class=" py-2 mb-2 btn btn-outline-light rounded-3 loginBtnW-32 "
+                                        type="submit">비밀번호 찾기</button>
+                                    <button class=" py-2 mb-2 btn btn-outline-light rounded-3 loginBtnW-32 "
+                                        type="submit">회원가입</button>
+                                </div>
+
+                                <button class="w-100 mb-2 btn btn-lg rounded-3 btn-outline-light " type="submit">Sign
+                                    up</button>
+                            </form>
+                        </div>
+                    </div>
                 </div>
+            </div>
 
-                <!-- 회원가입 링크 -->
-                <p class="text-center mt-10">
-                    계정이 없으신가요? <a href="signup.html">회원가입</a>
-                </p>
-            </form>
-        </div>
-    </div>
 
-    <!-- 푸터 -->
-    <footer>
-        <p>&copy; 2024 축제당. All rights reserved.</p>
-    </footer>
+        </main>
+
+        <footer class="container">
+            <nav>
+                <a herf="https://velog.io/@guri670/posts" target="_blank">Velog</a> |
+                <a herf="https://github.com/guri670" target="_blank">github</a>
+            </nav>
+            <p>
+                <span>만든이 : guri</span>
+                <br />
+                <span>이메일 : kory0484@gmail.com</span>
+                <br>
+                <span>Copyright 2024. guri. All Rights reserved.</span>
+            </p>
+        </footer>
 </body>
+
 </html>

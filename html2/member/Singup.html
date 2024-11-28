@@ -1,154 +1,171 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="/html2/css/footer.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="/html2/css/css.css" rel="stylesheet">
     <title>회원가입</title>
 </head>
+
 <body>
-    <div class="b-example-divider"></div>
-    <div class="container">
-      <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-        <div class="col-md-3 mb-2 mb-md-0">
-          <a href="/html2/index.html" class="d-inline-flex link-body-emphasis text-decoration-none">전국 축제를 당신에게
-            <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
-          </a>
+
+    <body>
+        <!--헤더-->
+        <div class="b-example-divider"></div>
+        <div class="container">
+            <header
+                class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+                <div class="col-md-3 mb-2 mb-md-0">
+                    <a href="index.html" class="d-inline-flex link-body-emphasis text-decoration-none">전국 축제를 당신에게
+                        <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
+                            <use xlink:href="#bootstrap" />
+                        </svg>
+                    </a>
+                </div>
+                <div>
+                    <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                        <li><a href="/html2/index.html" class="nav-link px-2 link-secondary">Home</a></li>
+                        <li><a href="/html2/festival/FestivalList.html" class="nav-link px-2">Festival Info</a></li>
+                        <li><a href="/html2/review/ReviewList.html" class="nav-link px-2">Festival Review</a></li>
+                        <li><a href="/html2/member/MyPage.html" class="nav-link px-2">MyPage</a></li>
+                        <li><a href="/html2/qna/QnAList.html" class="nav-link px-2">QnA</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 text-end">
+                    <button type="button" class="btn btn-outline-primary me-2"><a
+                            href="/html2/member/Login.html">Login</a></button>
+                    <button type="button" class="btn btn-primary"><a href="/html2/member/Singup.html"
+                            class="listA">Sign-up</a></button>
+                </div>
+            </header>
         </div>
-  
-        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="/html2/index.html" class="nav-link px-2 link-secondary">Home</a></li>
-          <li><a href="/html2/festival/FestivalList.html" class="nav-link px-2">Festival Info</a></li>
-          <li><a href="/html2/review/ReviewList.html" class="nav-link px-2">Festival Review</a></li>
-          <li><a href="/html2/member/MyPage.html" class="nav-link px-2">MyPage</a></li>
-          <li><a href="/html2/qna/QnAList.html" class="nav-link px-2">QnA</a></li>
-        </ul>
-  
+        <!-- 헤더 끝 -->
+        <div class="container-signup">
+            <!-- 회원가입 폼 -->
+            <form id="signup-form">
+                <!-- 아이디 -->
+                 <h3>전축당 회원가입</h3>
+                 <br>
+                <div class="mb-3">
+                    <label for="username" class="form-label">아이디</label>
+                    <input type="text" class="form-control" id="username" placeholder="아이디를 입력하세요" required>
+                </div>
 
-        <div class="col-md-3 text-end">
-          <button type="button" class="btn btn-outline-primary me-2"><a href="/html2/member/Login.html">Login</a></button>
-          <button type="button" class="btn btn-primary"><a href="/html2/member/Singup.html" class="listA" >Sign-up</a></button>
+                <!-- 비밀번호 -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">비밀번호</label>
+                    <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요" required>
+                </div>
+
+                <!-- 비밀번호 확인 -->
+                <div class="mb-3">
+                    <label for="confirm-password" class="form-label">비밀번호 확인</label>
+                    <input type="password" class="form-control" id="confirm-password" placeholder="비밀번호를 확인하세요"
+                        required>
+                    <span id="password-match" class="text-success d-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-check2-all" viewBox="0 0 16 16">
+                            <path
+                                d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0" />
+                            <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708" />
+                        </svg> 비밀번호가 일치합니다.
+                    </span>
+                </div>
+
+                <!-- 닉네임 -->
+                <div class="mb-3">
+                    <label for="nickname" class="form-label">닉네임</label>
+                    <input type="text" class="form-control" id="nickname" placeholder="닉네임을 입력하세요" required>
+                </div>
+
+                <!-- 생년월일 -->
+                <div class="mb-3 row">
+                    <div class="col">
+                        <label for="birth-year" class="form-label">생년</label>
+                        <select class="form-select" id="birth-year" required>
+                            <option value="">연도 선택</option>
+                            <!-- 1900~2024년까지 생년 월일 드롭다운 -->
+                            <!-- 옵션 추가 코드 예시: <option value="2020">2020</option> -->
+                            <!-- 생략 -->
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="birth-month" class="form-label">월</label>
+                        <select class="form-select" id="birth-month" required>
+                            <option value="">월 선택</option>
+                            <option value="01">1월</option>
+                            <option value="02">2월</option>
+                            <option value="03">3월</option>
+                            <option value="04">4월</option>
+                            <option value="05">5월</option>
+                            <option value="06">6월</option>
+                            <option value="07">7월</option>
+                            <option value="08">8월</option>
+                            <option value="09">9월</option>
+                            <option value="10">10월</option>
+                            <option value="11">11월</option>
+                            <option value="12">12월</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="birth-day" class="form-label">일</label>
+                        <select class="form-select" id="birth-day" required>
+                            <option value="">일 선택</option>
+                            <!-- 1~31일까지 일 드롭다운 -->
+                            <!-- 생략 -->
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 이메일 -->
+                <div class="mb-3">
+                    <label for="email" class="form-label">이메일</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="email" placeholder="이메일을 입력하세요" required>
+                        <select class="form-select" id="email-domain" required>
+                            <option value="">도메인 선택</option>
+                            <option value="naver.com">naver.com</option>
+                            <option value="google.com">google.com</option>
+                            <option value="kakao.com">kakao.com</option>
+                            <option value="direct">직접 입력</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 연락처 -->
+                <div class="mb-3">
+                    <label for="phone" class="form-label">연락처</label>
+                    <input type="text" class="form-control" id="phone" placeholder="'-' 없이 입력해주세요" required>
+                    <small class="text-muted">'-'는 제외하여 입력해주세요</small>
+                </div>
+
+                <!-- 확인, 취소 버튼 -->
+                <div class="d-flex justify-content-between">
+                    <button type="submit" class="btn btn-primary">확인</button>
+                    <button onclick="history.back()" class="btn btn-secondary"></a>취소</button>
+                </div>
+            </form>
         </div>
-      </header>
+        <br>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../js/signup.js"></script>
+        <footer class="container">
+            <nav>
+                <a herf="https://velog.io/@guri670/posts" target="_blank">Velog</a> |
+                <a herf="https://github.com/guri670" target="_blank">github</a>
+            </nav>
+            <p>
+                <span>만든이 : guri</span>
+                <br />
+                <span>이메일 : kory0485@gmail.com</span>
+                <br>
+                <span>Copyright 2024. guri. All Rights reserved.</span>
+            </p>
+        </footer>
+    </body>
 
-    <div class="container mt-5">
-        <!-- 회원가입 폼 -->
-        <form id="signup-form">
-            <!-- 아이디 -->
-            <div class="mb-3">
-                <label for="username" class="form-label">아이디</label>
-                <input type="text" class="form-control" id="username" placeholder="아이디를 입력하세요" required>
-            </div>
-
-            <!-- 비밀번호 -->
-            <div class="mb-3">
-                <label for="password" class="form-label">비밀번호</label>
-                <input type="password" class="form-control" id="password" placeholder="비밀번호를 입력하세요" required>
-            </div>
-
-            <!-- 비밀번호 확인 -->
-            <div class="mb-3">
-                <label for="confirm-password" class="form-label">비밀번호 확인</label>
-                <input type="password" class="form-control" id="confirm-password" placeholder="비밀번호를 확인하세요" required>
-                <span id="password-match" class="text-success d-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-all" viewBox="0 0 16 16">
-                        <path d="M12.354 4.354a.5.5 0 0 0-.708-.708L5 10.293 1.854 7.146a.5.5 0 1 0-.708.708l3.5 3.5a.5.5 0 0 0 .708 0zm-4.208 7-.896-.897.707-.707.543.543 6.646-6.647a.5.5 0 0 1 .708.708l-7 7a.5.5 0 0 1-.708 0"/>
-                        <path d="m5.354 7.146.896.897-.707.707-.897-.896a.5.5 0 1 1 .708-.708"/>
-                    </svg> 비밀번호가 일치합니다.
-                </span>
-            </div>
-
-            <!-- 닉네임 -->
-            <div class="mb-3">
-                <label for="nickname" class="form-label">닉네임</label>
-                <input type="text" class="form-control" id="nickname" placeholder="닉네임을 입력하세요" required>
-            </div>
-
-            <!-- 생년월일 -->
-            <div class="mb-3 row">
-                <div class="col">
-                    <label for="birth-year" class="form-label">생년</label>
-                    <select class="form-select" id="birth-year" required>
-                        <option value="">연도 선택</option>
-                        <!-- 1900~2024년까지 생년 월일 드롭다운 -->
-                        <!-- 옵션 추가 코드 예시: <option value="2020">2020</option> -->
-                        <!-- 생략 -->
-                    </select>
-                </div>
-                <div class="col">
-                    <label for="birth-month" class="form-label">월</label>
-                    <select class="form-select" id="birth-month" required>
-                        <option value="">월 선택</option>
-                        <option value="01">1월</option>
-                        <option value="02">2월</option>
-                        <option value="03">3월</option>
-                        <option value="04">4월</option>
-                        <option value="05">5월</option>
-                        <option value="06">6월</option>
-                        <option value="07">7월</option>
-                        <option value="08">8월</option>
-                        <option value="09">9월</option>
-                        <option value="10">10월</option>
-                        <option value="11">11월</option>
-                        <option value="12">12월</option>
-                    </select>
-                </div>
-                <div class="col">
-                    <label for="birth-day" class="form-label">일</label>
-                    <select class="form-select" id="birth-day" required>
-                        <option value="">일 선택</option>
-                        <!-- 1~31일까지 일 드롭다운 -->
-                        <!-- 생략 -->
-                    </select>
-                </div>
-            </div>
-
-            <!-- 이메일 -->
-            <div class="mb-3">
-                <label for="email" class="form-label">이메일</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="email" placeholder="이메일을 입력하세요" required>
-                    <select class="form-select" id="email-domain" required>
-                        <option value="">도메인 선택</option>
-                        <option value="naver.com">naver.com</option>
-                        <option value="google.com">google.com</option>
-                        <option value="kakao.com">kakao.com</option>
-                        <option value="direct">직접 입력</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- 연락처 -->
-            <div class="mb-3">
-                <label for="phone" class="form-label">연락처</label>
-                <input type="text" class="form-control" id="phone" placeholder="'-' 없이 입력해주세요" required>
-                <small class="text-muted">'-'는 제외하여 입력해주세요</small>
-            </div>
-
-            <!-- 확인, 취소 버튼 -->
-            <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-primary">확인</button>
-                <button onclick= "history.back()" class="btn btn-secondary"></a>취소</button>
-            </div>
-        </form>
-    </div>
-    <br>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../js/signup.js"></script>
-    <footer class="container">
-        <nav>
-            <a herf="https://velog.io/@guri670/posts" target="_blank">Velog</a> |
-            <a herf="https://github.com/guri670" target="_blank">github</a>
-        </nav>
-        <p>
-            <span>만든이 : guri</span>
-            <br/>
-            <span>이메일 : kory0484@gmail.com</span>
-            <br>
-            <span>Copyright 2024. guri. All Rights reserved.</span>
-        </p>
-    </footer>
-</body>
 </html>
