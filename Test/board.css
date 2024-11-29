@@ -1,0 +1,210 @@
+footer {
+    width: 100%;
+    height: 100px;
+    bottom: 0px;
+    border-top: 1px solid #4b2d23;
+    padding-top: 15px;
+    color: #808080;
+    font-size: 11px;
+  }
+  
+  footer a {
+    display: inline-block;
+    margin: 0 20px 10px 20px;
+    color: #808080;
+    font-size: 11px;
+  }
+  
+  footer a:visited {
+    color: #808080;
+  }
+  
+  footer p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  
+  footer p span {
+    display: inline-block;
+    margin-left: 20px;
+  }
+  /* 헤더 링크 움직이기 */
+  
+  
+  .listA {
+    text-decoration: none;
+    color: white;
+  }
+  /* 메뉴 상단 이름 */
+  
+  .container-tabname {
+    text-align: center;
+  }
+  
+  .q-id {
+    font-size: 14px;
+  }
+  
+  .boardList {
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .board_title strong {
+    font-size: 3rem;
+  }
+  
+  .board_title p {
+    margin-top: 5px;
+    font-size: 1.4rem;
+  }
+  
+  .bt_wrap {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 0;
+  }
+  
+  .bt_wrap a:first-child {
+    margin-left: 0;
+  }
+  
+  .bt_wrap a.on {
+    background: #000;
+    color: #fff;
+  }
+  
+  .boardList > div {
+    border-bottom: 1px solid #ddd;
+    font-size: 0;
+  }
+  
+  .boardList > div.top {
+    border-bottom: 1px solid #999;
+  }
+  
+  
+  .boardList > div:last-child {
+    border-bottom: 1px solid #000;
+  }
+  
+  
+  .boardList > div > div {
+    display: inline-block;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 0.7rem;
+  }
+  
+  .boardList > div.top > div {
+    font-weight: 600;
+  }
+  
+  .boardList .boardList-viewcnt,
+  .boardList .boardList-writer,
+  .boardList .boardList-bidx {
+    width: 10%;
+  }
+
+  .boardList .boardList-subject {
+    width: 55%;
+    text-align: left;
+  }
+
+  .boardList .top .boardList-subject {
+    text-align: center;
+  }
+  
+  .boardList .boardList-writeday {
+    width: 15%;
+  }
+  
+  .boardList {
+    width: 100%;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+  
+  .boardList > div {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .boardList > div.top {
+    font-weight: 600;
+  }
+  
+  .boardList .boardList-bidx,
+  .boardList .boardList-subject,
+  .boardList .boardList-writer,
+  .boardList .boardList-writeday,
+  .boardList .boardList-viewcnt {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  /* 중앙 배치 및 반응형 크기 조정 */
+  .container-boardList {
+    width: 67%;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .col-12 {
+    width: 100%;
+  }
+  
+  .col-md-8,
+  .col-lg-6 {
+    width: 67%;
+    max-width: 800px;
+  }
+  
+  .d-flex-center {
+    display: flex;
+    justify-content: space-around; /* 양쪽 끝으로 배치 */
+    align-items: center; /* 세로 가운데 정렬 */
+  }
+  .boardList-wrap div {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .boardList-wrap .top {
+    font-weight: bold;
+    background: #f8f9fa;
+  }
+  
+  /*카드 상단 둥글게*/
+  .card {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .card-body {
+    text-align: center;
+  }
+
+  form select {
+    margin-right: 10px;
+  }
+
+/*   form input {
+    max-width: 200px;
+  } */
+  
+  

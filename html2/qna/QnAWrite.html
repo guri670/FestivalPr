@@ -1,58 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="/html2/css/footer.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="/html2/css/write.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <!-- TUI 에디터 CSS CDN -->
+    <link rel="stylesheet" href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css" />
 </head>
+
 <body>
-  <!--헤더-->
-  <div class="b-example-divider"></div>
-  <div class="container">
-      <header
-          class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-          <div class="col-md-3 mb-2 mb-md-0">
-              <a href="/html2/index.html" class="d-inline-flex link-body-emphasis text-decoration-none">전국 축제를 당신에게
-                  <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
-                      <use xlink:href="#bootstrap" />
-                  </svg>
-              </a>
-          </div>
-          <div>
-              <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                  <li><a href="/html2/index.html" class="nav-link px-2 link-secondary">Home</a></li>
-                  <li><a href="/html2/festival/FestivalList.html" class="nav-link px-2">Festival Info</a></li>
-                  <li><a href="/html2/review/ReviewList.html" class="nav-link px-2">Festival Review</a></li>
-                  <li><a href="/html2/member/MyPage.html" class="nav-link px-2">MyPage</a></li>
-                  <li><a href="/html2/qna/QnAList.html" class="nav-link px-2">QnA</a></li>
-              </ul>
-          </div>
-          <div class="col-md-3 text-end">
-              <button type="button" class="btn btn-outline-primary me-2"><a
-                      href="/html2/member/Login.html">Login</a></button>
-              <button type="button" class="btn btn-primary"><a href="/html2/member/Singup.html"
-                      class="listA">Sign-up</a></button>
-          </div>
-      </header>
-  </div>
-  <!-- 헤더 끝 -->
+    <!--헤더-->
+    <div class="b-example-divider"></div>
+    <div class="container">
+        <header
+            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <div class="col-md-3 mb-2 mb-md-0">
+                <a href="/html2/index.html" class="d-inline-flex link-body-emphasis text-decoration-none">전국 축제를 당신에게
+                    <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
+                        <use xlink:href="#bootstrap" />
+                    </svg>
+                </a>
+            </div>
+            <div>
+                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+                    <li><a href="/html2/index.html" class="nav-link px-2 link-secondary">Home</a></li>
+                    <li><a href="/html2/festival/FestivalList.html" class="nav-link px-2">Festival Info</a></li>
+                    <li><a href="/html2/review/ReviewList.html" class="nav-link px-2">Festival Review</a></li>
+                    <li><a href="#" class="nav-link px-2">MyPage</a></li>
+                    <li><a href="/html2/qna/QnAList.html" class="nav-link px-2">QnA</a></li>
+                </ul>
+            </div>
+            <div class="col-md-3 text-end">
+                <button type="button" class="btn btn-outline-primary me-2"><a
+                        href="/html2/member/Login.html">Login</a></button>
+                <button type="button" class="btn btn-primary"><a href="/html2/member/Singup.html"
+                        class="listA">Ssign-up</a></button>
+            </div>
+        </header>
+        <!-- 헤더 끝 -->
 
-  
 
+        <div id="container-writebox">
+            <div class="subject">
+                <dl>
+                    <dt>제목</dt>
+                    <dd><input type="text" placeholder="제목 입력"></dd>
+                </dl>
+            </div>
+            <!-- TUI 에디터 JS CDN -->
+            <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+            <!-- 에디터를 적용할 요소 (컨테이너) -->
+            <div id="content">
+                <script>
+                    const editor = new toastui.Editor({
+                        el: document.querySelector('#content'), // 에디터를 적용할 요소 (컨테이너)
+                        height: '500px', // 에디터 영역의 높이 값 (OOOpx || auto)
+                        initialEditType: 'markdown', // 최초로 보여줄 에디터 타입 (markdown || wysiwyg)
+                        initialValue: '궁금하신점을 작성해주세요!', // 내용의 초기 값으로, 반드시 마크다운 문자열 형태여야 함
+                        previewStyle: 'vertical' // 마크다운 프리뷰 스타일 (tab || vertical)
+                    });
+                </script>
+            </div>
+            <br>
+            <div class="text-center">
+                <button type="button" class="btn btn-primary"><a href="#">글쓰기</a></button>
+                <button type="button" class="btn btn-secondary"><a
+                        href="/html2/qna/QnAList.html">취소</a></button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <br>
+    <!-- 푸터 시작-->
     <footer class="container">
         <nav>
-            <a herf="https://velog.io/@guri670/posts" target="_blank">Velog</a> |
-            <a herf="https://github.com/guri670" target="_blank">github</a>
+            <a href="https://velog.io/@guri670/posts" target="_blank">Velog</a> |
+            <a href="https://github.com/guri670" target="_blank">github</a>
         </nav>
         <p>
             <span>만든이 : guri</span>
-            <br/>
+            <br />
             <span>이메일 : kory0485@gmail.com</span>
             <br>
             <span>Copyright 2024. guri. All Rights reserved.</span>
         </p>
     </footer>
 </body>
+
 </html>

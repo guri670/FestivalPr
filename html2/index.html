@@ -18,7 +18,7 @@
         <header
             class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
             <div class="col-md-3 mb-2 mb-md-0">
-                <a href="index.html" class="d-inline-flex link-body-emphasis text-decoration-none">전국 축제를 당신에게
+                <a href="/html2/index.html" class="d-inline-flex link-body-emphasis text-decoration-none">전국 축제를 당신에게
                     <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
                         <use xlink:href="#bootstrap" />
                     </svg>
@@ -26,10 +26,10 @@
             </div>
             <div>
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.html" class="nav-link px-2 link-secondary">Home</a></li>
+                    <li><a href="/html2/index.html" class="nav-link px-2 link-secondary">Home</a></li>
                     <li><a href="/html2/festival/FestivalList.html" class="nav-link px-2">Festival Info</a></li>
                     <li><a href="/html2/review/ReviewList.html" class="nav-link px-2">Festival Review</a></li>
-                    <li><a href="/html2/member/MyPage.html" class="nav-link px-2">MyPage</a></li>
+                    <li><a href="#" class="nav-link px-2">MyPage</a></li>
                     <li><a href="/html2/qna/QnAList.html" class="nav-link px-2">QnA</a></li>
                 </ul>
             </div>
@@ -42,7 +42,9 @@
         </header>
     </div>
     <!-- 헤더 끝 -->
-     
+    <div class="container-tabname">📅축제 달력📅
+        <p></p>
+    </div>
     <!-- 캘린더 영역 -->
     <div class="container-calendar">
         <div class="row justify-content-center">
@@ -84,39 +86,43 @@
 
 
     <!-- 후기글 -->
-    <div class="container-index">
+    <div class="container-board">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
-                <div>
+                <div class="main_info">
                     <h3>최신 리뷰</h3>
+                </div>
+                <div>
+
                     <form class="d-flex" role="search">
                         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
-
                 </div>
-                <div class="card mb-3">
-                    <div class="index-review-wrap">
-                        <div class="index-review">
-                            <div class="top">
-                                <div class="index-bidx">번호</div>
-                                <div class="index-subject">제목</div>
-                                <div class="index-writer">글쓴이</div>
-                                <div class="index-writeday">작성일</div>
-                                <div class="index-viewcnt">조회</div>
-                            </div>
-                            <div>
-                                <div class="index-bidx">5</div>
-                                <div class="index-subject"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                                <div class="index-writer">김이름</div>
-                                <div class="index-writeday">2021.1.15</div>
-                                <div class="index-viewcnt">33</div>
-                            </div>
+
+            </div>
+            <div class="card mb-3">
+                <div class="index-review-wrap">
+                    <div class="board">
+                        <div class="top">
+                            <div class="board-bidx">번호</div>
+                            <div class="board-subject">제목</div>
+                            <div class="board-writer">글쓴이</div>
+                            <div class="board-writeday">작성일</div>
+                            <div class="board-viewcnt">조회</div>
+                        </div>
+                        <div>
+                            <div class="board-bidx">5</div>
+                            <div class="board-subject"><a href="view.html">글 제목이 들어갑니다.</a></div>
+                            <div class="board-writer">김이름</div>
+                            <div class="board-writeday">2021.1.15</div>
+                            <div class="board-viewcnt">33</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
     </div>
     <div class="text-center">

@@ -28,10 +28,23 @@ footer p span {
   display: inline-block;
   margin-left: 20px;
 }
+/* 헤더 링크 움직이기 */
 
 .listA {
   text-decoration: none;
   color: white;
+}
+/* 메뉴 상단 이름 */
+
+.container-tabname {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.container-tabname p {
+  margin-top: 5px;
+  font-size: 1rem;
+  text-align: center;
 }
 
 /* 이미지 둥글게 만들기 */
@@ -68,7 +81,7 @@ footer p span {
   padding: 0;
 }
 
-.index-review {
+.board {
   margin: 0;
   padding: 0;
 }
@@ -76,15 +89,6 @@ footer p span {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-.board_title strong {
-  font-size: 3rem;
-}
-
-.board_title p {
-  margin-top: 5px;
-  font-size: 1.4rem;
 }
 
 .bt_wrap {
@@ -112,60 +116,33 @@ a {
   color: #fff;
 }
 
-.festiList > div {
+.board > div {
   border-bottom: 1px solid #ddd;
   font-size: 0;
 }
 
-.index-review > div {
-  border-bottom: 1px solid #ddd;
-  font-size: 0;
-}
-
-.festiList > div.top {
+.board > div.top {
   border-bottom: 1px solid #999;
 }
 
-.index-review > div.top {
-  border-bottom: 1px solid #999;
-}
-
-.festiList > div:last-child {
+.board > div:last-child {
   border-bottom: 1px solid #000;
 }
 
-.index-review > div:last-child {
-  border-bottom: 1px solid #000;
-}
-
-.festiList > div > div {
+.board > div > div {
   display: inline-block;
   padding: 15px 0;
   text-align: center;
   font-size: 0.7rem;
 }
 
-.index-review > div > div {
-  display: inline-block;
-  padding: 15px 0;
-  text-align: center;
-  font-size: 0.7rem;
-}
-
-.festiList > div.top > div {
+.board > div.top > div {
   font-weight: 600;
 }
 
-.index-review > div.top > div {
-  font-weight: 600;
-}
-
-.index-review .index-viewcnt,
-.index-review .index-writer,
-.index-review .index-bidx,
-.festiList .festiList-viewcnt,
-.festiList .festiList-writer,
-.festiList .festiList-bidx {
+.board .board-viewcnt,
+.board .board-writer,
+.board .board-bidx {
   width: 10%;
 }
 
@@ -173,22 +150,19 @@ a {
   display: flex;
   align-items: center;
 }
-.index-review .index-subject,
+
+.board .board-subject,
 .festiList .festiList-subject {
   width: 55%;
   text-align: left;
 }
 
-.index-review .top .index-subject,
+.board .board-subject,
 .festiList .top .festiList-subject {
   text-align: center;
 }
 
-.festiList .festiList-writeday {
-  width: 15%;
-}
-
-.index-review .index-writeday {
+.board .board-writeday {
   width: 15%;
 }
 
@@ -203,8 +177,7 @@ a {
   box-sizing: border-box;
 }
 
-.festiList,
-.index-review {
+.board {
   width: 100%;
   padding: 15px;
   background-color: #f8f9fa;
@@ -213,29 +186,19 @@ a {
   font-size: 14px;
 }
 
-.festiList,
-.index-review > div {
+.board > div {
   border-bottom: 1px solid #ddd;
 }
 
-.festiList > div.top {
+.board > div.top {
   font-weight: 600;
 }
 
-.festiList .festiList-bidx,
-.festiList .festiList-subject,
-.festiList .festiList-writer,
-.festiList .festiList-writeday,
-.festiList .festiList-viewcnt {
-  padding: 10px;
-  text-align: center;
-}
-
-.index-review .index-bidx,
-.index-review .index-subject,
-.index-review .index-writer,
-.index-review .index-writeday,
-.index-review .index-viewcnt {
+.board .board-bidx,
+.board .board-subject,
+.board .board-writer,
+.board .board-writeday,
+.board .board-viewcnt {
   padding: 10px;
   text-align: center;
 }
@@ -243,8 +206,7 @@ a {
 /* 중앙 배치 및 반응형 크기 조정 */
 .container-calendar,
 .container-festiList,
-.container-index,
-.container-qna,
+.container-board,
 .container-qnaContents {
   width: 67%;
   max-width: 1000px;
@@ -277,3 +239,46 @@ a {
   justify-content: space-around; /* 양쪽 끝으로 배치 */
   align-items: center; /* 세로 가운데 정렬 */
 }
+
+/*카드 상단 둥글게*/
+.card {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.card-body {
+  text-align: center;
+}
+
+.form select {
+  margin-right: 10px;
+}
+
+.pagination {
+  justify-content: center;
+  text-align: center;
+}
+
+.main_info {
+text-align: center;
+}
+
+.carousel-silder {
+  width: 70%;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 20px; /* 둥근 모서리 */
+  overflow: hidden; /* 박스 밖으로 넘치는 요소 숨김 */
+  padding: 10px 0; /* 상하 여백 */
+}
+
+.carousel-item img {
+  width: 100%; /* 이미지의 너비를 박스에 맞춤 */
+  height: 100%; /* 이미지의 높이를 박스에 맞춤 */
+  object-fit: cover; /* 이미지를 박스 크기에 맞게 자름 */
+  border-radius: 15px; /* 이미지의 모서리 둥글게 */
+}
+/*   form input {
+    max-width: 200px;
+  } */
+

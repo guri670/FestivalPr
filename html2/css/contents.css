@@ -39,51 +39,51 @@ a {
   color: white;
 }
 
-.board_title strong {
-  font-size: 3rem;
+.contents strong {
+  font-size: 2rem;
 }
 
-.board_title p {
+.contents_title p {
   margin-top: 5px;
   font-size: 1.4rem;
 }
 
 /* 중앙 배치 및 반응형 크기 조정 */
 
-.container-qnaContents {
+.container-Contents {
   width: 67%;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.board_view {
+.contents_view {
   width: 100%;
   border-top: 2px solid #000;
 }
 
-.board_view .subject {
+.contents_view .subject {
   padding: 20px 15px;
   border-bottom: 1px dashed #ddd;
   font-size: 1rem;
 }
 
-.board_view .info {
+.contents_view .info {
   padding: 15px;
   border-bottom: 1px solid #999;
   font-size: 0;
 }
 
-.board_view .info dl {
+.contents_view .info dl {
   position: relative;
   display: inline-block;
   padding: 0 20px;
 }
 
-.board_view .info dl:first-child {
+.contents_view .info dl:first-child {
   padding-left: 0;
 }
 
-.board_view .info dl::before {
+.contents_view .info dl::before {
   content: "";
   position: absolute;
   top: 1px;
@@ -94,22 +94,22 @@ a {
   background: #ddd;
 }
 
-.board_view .info dl:first-child::before {
+.contents_view .info dl:first-child::before {
   display: none;
 }
 
-.board_view .info dl dt,
-.board_view .info dl dd {
+.contents_view .info dl dt,
+.contents_view .info dl dd {
   display: inline-block;
   font-size: 1rem;
 }
 
-.board_view .info dl dd {
+.contents_view .info dl dd {
   margin-left: 10px;
   color: #777;
 }
 
-.board_view .cont {
+.contents_view .contents {
   padding: 15px;
   border-bottom: 1px solid #000;
   line-height: 160%;
@@ -118,21 +118,21 @@ a {
 
 
 @media (max-width: 1000px) {
-  .board_view .info dl {
+  .contents_view .info dl {
     width: 50%;
     padding: 0;
   }
 
-  .board_view .info dl:nth-child(-n + 2) {
+  .contents_view .info dl:nth-child(-n + 2) {
     margin-bottom: 5px;
   }
 
-  .board_view .info dl::before {
+  .contents_view .info dl::before {
     display: none;
   }
 
-  .board_view .info dl dt,
-  .board_view .info dl dd {
+  .contents_view .info dl dt,
+  .contents_view .info dl dd {
     font-size: 1rem;
   }
 }
