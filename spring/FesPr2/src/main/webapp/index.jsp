@@ -1,45 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "c" uri= "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Festival For You</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-        <link href="/html2/css/css.css" rel="stylesheet">
-        <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js "></script>
+    <link href="${pageContext.request.contextPath}/resources/css/style.css" rel="stylesheet">
+    <script src=" https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js "></script>
 </head>
+
 
 <body>
     <!--헤더-->
     <div class="b-example-divider"></div>
     <div class="container">
-        <header
-            class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
-            <div class="col-md-3 mb-2 mb-md-0">
-                <a href="/html2/index.html" class="d-inline-flex link-body-emphasis text-decoration-none">전국 축제를 당신에게
-                    <svg class="bi" width="40" height="32" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap" />
-                    </svg>
-                </a>
-            </div>
-            <div>
-                <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="/html2/index.html" class="nav-link px-2 link-secondary">Home</a></li>
-                    <li><a href="/html2/festival/FestivalList.html" class="nav-link px-2">Festival Info</a></li>
-                    <li><a href="/html2/review/ReviewList.html" class="nav-link px-2">Festival Review</a></li>
-                    <li><a href="#" class="nav-link px-2">MyPage</a></li>
-                    <li><a href="/html2/qna/QnAList.html" class="nav-link px-2">QnA</a></li>
-                </ul>
-            </div>
-            <div class="col-md-3 text-end">
-                <button type="button" class="btn btn-outline-primary me-2"><a
-                        href="/html2/member/Login.html">Login</a></button>
-                <button type="button" class="btn btn-primary"><a href="/html2/member/Singup.html"
-                        class="listA">Sign-up</a></button>
-            </div>
-        </header>
+<%@ include file="/WEB-INF/views/common/header.jsp" %>
     </div>
     <!-- 헤더 끝 -->
     <div class="container-tabname">📅축제 달력📅
@@ -101,8 +80,8 @@
                 </div>
 
             </div>
-            <div class="card mb-3">
-                <div class="index-review-wrap">
+            <div class="index-review-wrap">
+                <div class="card mb-3">
                     <div class="board">
                         <div class="top">
                             <div class="board-bidx">번호</div>
@@ -131,19 +110,7 @@
         <!-- 후기글 끝 -->
         <br>
         <!--풋터-->
-        <footer class="container">
-            <nav>
-                <a herf="https://velog.io/@guri670/posts" target="_blank">Velog</a> |
-                <a herf="https://github.com/guri670" target="_blank">github</a>
-            </nav>
-            <p>
-                <span>만든이 : guri</span>
-                <br />
-                <span>이메일 : kory0485@gmail.com</span>
-                <br>
-                <span>Copyright 2024. guri. All Rights reserved.</span>
-            </p>
-        </footer>
+<%@ include file="/WEB-INF/views/common/footer.jsp" %>
 </body>
 
 </html>
