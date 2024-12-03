@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	 <%@page import ="java.util.*" %>
+ <%@page import ="com.myaws.myapp.domain.*" %>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <head>
@@ -115,6 +117,7 @@
                   <div class="board-writeday">작성일</div>
                   <div class="board-viewcnt">조회</div>
                 </div>
+                <c:forEach items="${blist}" var ="bv" varStatus="status">
                 <div>
                   <div class="board-bidx">${bv.bidx}</div>
                   <div class="board-subject"><a href="${pageContext.request.contextPath}/board/review/reviewContents.aws?bidx=${bv.bidx}">${bv.subject}
@@ -123,6 +126,7 @@
                   <div class="board-writeday">${bv.writeday}</div>
                   <div class="board-viewcnt">${bv.viewCnt}</div>
                 </div>
+                </c:forEach>
               </div>
             </div>
           </div>
