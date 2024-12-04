@@ -13,7 +13,14 @@ public class MemberVo {
 	private String memberProfile_Img;
 	private String memberSelfInfo;
 	private String delyn;
+	private String memberip;
 	
+	public String getMemberip() {
+		return memberip;
+	}
+	public void setMemberip(String memberip) {
+		this.memberip = memberip;
+	}
 	public int getMidx() {
 		return midx;
 	}

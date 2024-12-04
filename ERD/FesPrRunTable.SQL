@@ -22,3 +22,11 @@ VALUES
 ('전통 무용', '다양한 문화의 전통 무용을 경험할 수 있는 축제입니다.', 'Admin', NULL, 0, '2024-11-26 08:27:57', 'N', NULL, 2, 1),
 ('테크 서밋', '최신 기술 혁신이 소개되는 테크 서밋입니다.', 'Admin', NULL, 0, '2024-11-25 08:27:57', 'N', NULL, 2, 1),
 ('헬스 엑스포', '건강 검진과 피트니스 클래스가 제공되는 헬스 엑스포입니다.', 'Admin', NULL, 0, '2024-11-24 08:27:57', 'N', NULL, 2, 1);
+
+-- 멤버 테이블에 아이피 추가
+ALTER TABLE MEMBER
+ADD COLUMN memberip VARCHAR(20) NULL;
+ALTER TABLE board
+ADD COLUMN ip VARCHAR(20) NULL;
+
+ALTER TABLE board MODIFY boardInfo char(2) NULL;

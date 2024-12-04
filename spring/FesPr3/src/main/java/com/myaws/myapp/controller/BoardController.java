@@ -1,21 +1,36 @@
 package com.myaws.myapp.controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.myaws.myapp.domain.BoardVo;
 import com.myaws.myapp.domain.PageMaker;
 import com.myaws.myapp.domain.SearchCriteria;
 import com.myaws.myapp.service.BoardService;
+import com.myaws.myapp.util.MediaUtils;
+import com.myaws.myapp.util.UploadFileUtiles;
+import com.myaws.myapp.util.UserIp;
 
 @Controller
 @RequestMapping(value="/board/")
@@ -31,6 +46,10 @@ public class BoardController {
 
 	@Resource(name = "uploadPath")
 	private String uploadPath;
+	
+	@Autowired(required = false) // null도 포함
+	private UserIp userIp;
+
 	
 	@RequestMapping(value = "festival/festivalList.aws")
 	public String festivalList(SearchCriteria scri, Model model) {
@@ -141,10 +160,46 @@ public class BoardController {
 
 	@RequestMapping(value = "review/reviewWrite.aws")
 	public String reviewWrite() {
-//		logger.info("boardWrite에 들어옴"); 
+		logger.info("boardWrite에 들어옴"); 
 
 		String path = "WEB-INF/board/review/reviewWrite";
 		return path;
+	}
+	
+	@RequestMapping(value = "review/reviewWriteAction.aws")
+	public String boardWriteAction(BoardVo bv, @RequestParam("attachfile") MultipartFile attachfile,
+			HttpServletRequest request, RedirectAttributes rttr) throws Exception {
+
+		MultipartFile file = attachfile;
+		String uploadedFileName = "";
+
+		if (!file.getOriginalFilename().equals("")) {
+			uploadedFileName = UploadFileUtiles.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+		}
+		String midx = request.getSession().getAttribute("midx").toString();
+		int midx_int = Integer.parseInt(midx);
+
+		String ip = userIp.getUserIp(request);
+
+		bv.setUploadedFilename(uploadedFileName);
+		bv.setMidx(midx_int);
+		bv.setIp(ip); 
+		// 게시판 정보 꼭 넣어야함
+ 
+
+
+		String path = "";
+		int value = boardService.boardInsert(bv);
+
+		if (value == 2) {
+			path = "redirect:/board/boardList.aws";
+		} else {
+			rttr.addFlashAttribute("msg", "입력이잘못되었습니다");
+			path = "redirect:/board/boardWrite.aws";
+		}
+
+		return path;
+
 	}
 
 	@RequestMapping(value = "review/reviewContents.aws")
@@ -166,5 +221,51 @@ public class BoardController {
 
 		String path = "WEB-INF/board/review/reviewModify";
 		return path;
+	}
+	
+	@RequestMapping(value = "displayFile.aws", method = RequestMethod.GET)
+	public ResponseEntity<byte[]> displayFile(@RequestParam("fileName") String fileName,
+			@RequestParam(value = "down", defaultValue = "0") int down) {
+
+		ResponseEntity<byte[]> entity = null;
+		InputStream in = null;
+
+		try {
+			String formatName = fileName.substring(fileName.lastIndexOf(".") + 1);
+			MediaType mType = MediaUtils.getMediaType(formatName);
+
+			HttpHeaders headers = new HttpHeaders();
+
+			in = new FileInputStream(uploadPath + fileName);
+
+			if (mType != null) {
+				if (down == 1) {
+					fileName = fileName.substring(fileName.indexOf("_") + 1);
+					headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+					headers.add("Content-Disposition",
+							"attachment; filename=\"" + new String(fileName.getBytes("UTF-8"), "ISO-8859-1") + "\"");
+				} else {
+					headers.setContentType(mType);
+				}
+			} else {
+				fileName = fileName.substring(fileName.indexOf("_") + 1);
+				headers.setContentType(MediaType.APPLICATION_OCTET_STREAM);
+				headers.add("Content-Disposition",
+						"attachment; filename=\"" + new String(fileName.getBytes("UTF-8"), "ISO-8859-1") + "\"");
+			}
+			entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in), headers, HttpStatus.CREATED);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+		} finally {
+			try {
+				in.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		return entity;
 	}
 }

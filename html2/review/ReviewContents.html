@@ -46,9 +46,9 @@
     <div class="container-Contents">
         <div class="contents">
             <strong>📑후기 정보</strong>
-            
+
             <!-- <p>쓸말적을까? </p>-->
-             
+
             <br>
             <br>
         </div>
@@ -87,6 +87,18 @@
                 </div>
             </div>
             <br>
+            <div class="commentContents">
+                <form name="frm">
+                    <p class="commentWriter">
+                        <input type="text" id="cwriter" name="cwriter" value="${memberName}" readonly="readonly"
+                            style="width:100px;">
+                        <!-- readonly 속성으로 읽기만 가능하게(수정불가) 만든다. -->
+                    </p>
+                    <input type="text" id="ccontents" name="ccontents"> <!-- id값 부여 name sql 데이터와 일치 -->
+                    <button type="button" id="cmtBtn" class="replyBtn">댓글쓰기</button> <!-- id값 부여 및 유효성 검사 함수 제거 -->
+            </div>
+            <br>
+
             <div class="button-box">
                 <div class="d-flex justify-content-between">
                     <button type="submit" class="btn btn-primary">작성</button>

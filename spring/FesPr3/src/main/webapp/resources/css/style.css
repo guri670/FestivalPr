@@ -288,6 +288,8 @@ text-align: center;
 .page li { display: inline-block; width: 30px; height: 30px; cursor: pointer; }
 .page .on { background: black; color: white; }
 
+
+
 /*   form input {
     max-width: 200px;
   } */

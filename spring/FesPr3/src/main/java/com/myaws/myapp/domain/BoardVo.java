@@ -12,7 +12,22 @@ public class BoardVo {
 	private String modifyWriteday;
 	private String boardInfo;
 	private int midx;
+	private String uploadedFilename;
+	private String ip;
+
 	
+	public String getIp() {
+		return ip;
+	}
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
+	public String getUploadedFilename() {
+		return uploadedFilename;
+	}
+	public void setUploadedFilename(String uploadedFilename) {
+		this.uploadedFilename = uploadedFilename;
+	}
 	public int getBidx() {
 		return bidx;
 	}

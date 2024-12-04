@@ -6,6 +6,7 @@ import java.util.HashMap;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.myaws.myapp.domain.BoardVo;
 import com.myaws.myapp.domain.SearchCriteria;
@@ -57,5 +58,35 @@ public class BoardServiceImpl implements BoardService{
 		
 		return cnt;
 	}
+	
+	@Override
+	@Transactional
+	public int boardInsert(BoardVo bv) {
+		
+		int value = bm.boardInsert(bv);
+		
+		return value;
+	}
 
+	@Override
+	public int boardUpdate(BoardVo bv) {
+
+		int value = bm.boardUpdate(bv);
+		
+		return value;
+	}
+	
+	@Override
+	public int boardDelete(int bidx, int midx, String password) {
+		
+		HashMap<String,Object> hm = new HashMap<String,Object>();
+		hm.put("bidx", bidx);
+		hm.put("midx", midx);
+		hm.put("password", password);
+		// bidx, midx password 매개변수를 hashmap에 담는다
+		
+		int cnt = bm.boardDelete(hm);
+		
+		return cnt;
+	}
 }
