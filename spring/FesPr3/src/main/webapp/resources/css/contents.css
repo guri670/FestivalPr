@@ -136,3 +136,130 @@ a {
     font-size: 1rem;
   }
 }
+
+
+.commentContents {
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.commentForm {
+    margin-bottom: 20px;
+}
+
+.commentWriter {
+    margin-bottom: 10px;
+}
+
+.commentWriter .form-label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+}
+
+.input-group .form-control {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.replyBtn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.commentList {
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+#morebtn {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#morebtn .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+.commentList {
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.commentList table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.commentList th, .commentList td {
+    padding: 10px;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.commentList th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+.commentList td {
+    background-color: #fff;
+}
+
+.commentList .content {
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.commentList button {
+    padding: 5px 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #f44336;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.commentList button:hover {
+    background-color: #d32f2f;
+}
+
+#morebtn {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#morebtn .btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+#morebtn .btn:hover {
+    background-color: #388E3C;
+}
+

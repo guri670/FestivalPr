@@ -84,7 +84,7 @@ public class MemberController {
 				rttr.addAttribute("memberId", mv.getMemberId());
 				rttr.addAttribute("memberNickName", mv.getMemberNickName());
 
-				logger.info("saveUrl" + session.getAttribute("saveUrl"));
+				logger.info("saveUrl : "  + session.getAttribute("saveUrl"));
 
 				if (session.getAttribute("saveUrl") != null) {
 					path = "redirect:" + session.getAttribute("saveUrl").toString();

@@ -29,3 +29,33 @@ CREATE TABLE board(
   midx int NOT NULL
 );
   DDabong int NULL DEFAULT 0,
+
+
+  CREATE TABLE comment(
+  cidx int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  ccontents text NOT NULL,
+  cwriteday datetime NULL DEFAULT now(),
+  commentInfo char(2) NULL,
+  delyn char(1) NULL DEFAULT 'N' ,
+  midx int NOT NULL,
+  bidx int NOT NULL,
+  cip char(20) null
+);
+
+drop table comment
+
+  CREATE TABLE reviewboard(
+  rbidx int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  subject varchar(100) NOT NULL,
+  contents text NOT NULL,
+  writer varchar(100) not null,
+  tumbnail varchar(100) not null,
+  fileName varchar(100) NULL,
+  viewCnt int NULL DEFAULT 0,
+  writeday datetime NULL DEFAULT now(),
+  delyn char(1) NULL DEFAULT 'N' ,
+  modifyWriteday datetime NULL DEFAULT now(),
+  midx int NOT NULL
+);
+
+drop table reviewboard

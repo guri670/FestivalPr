@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+    <article class="commentContents">
+        <div id="commentListView" class="commentList">
+            <!-- 댓글 목록 -->
+        </div>
+        <form name="frm" class="commentForm">
+            <p class="commentWriter">
+                <label for="cwriter" class="form-label"></label> <input
+                    type="text" id="cwriter" name="cwriter" value="${memberNickName}"
+                    readonly="readonly" class="form-control"
+                    style="width: 100px; border: none; font-size: 1.4rem;">
+            </p>
+            <div class="input-group mb-3">
+                <input type="text" id="ccontents" name="ccontents"
+                    class="form-control" placeholder="댓글을 입력하세요" aria-label="댓글 입력">
+                <button type="button" id="cmtBtn" class="btn btn-primary replyBtn">댓글쓰기</button>
+            </div>
+        </form>
+
+
+        <div id="morebtn" class="text-center">
+            <button type="button" id="more" class="btn btn-secondary">더보기</button>
+            <input type="hidden" id="block" value="1">
+        </div>
+    </article>
+</body>
+</html>

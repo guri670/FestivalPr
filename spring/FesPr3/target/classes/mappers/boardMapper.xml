@@ -16,7 +16,7 @@
 
 
 	<select id="boardSelectAll" parameterType="HashMap" resultType="bv">
-		select * from board where delyn='N'
+		select * from board where delyn='N'order by bidx desc
 		<include refid="search" />
 		limit #{startPageNum},#{perPageNum}
 	</select>
@@ -38,10 +38,11 @@
 	
 	<insert id="boardInsert" parameterType="bv">
 		<selectKey keyProperty="bidx" resultType="int" order="AFTER">
-			select bidx from board
+			select
+			max(bidx) as bidx from board
 		</selectKey>
 		insert into board
-		(subject,contents,writer,midx,filename,ip)
+		(subject,contents,writer,midx,fileName,ip)
 		value(#{subject},#{contents},#{writer},#{midx},#{uploadedFilename},#{ip})
 	</insert>
 	
@@ -57,4 +58,8 @@
 		modifyday=now(), filename=#{uploadedFilename} where bidx=#{bidx} 
 		and midx=#{midx}
 	</update>
+	
+	<select id="lastestReview" parameterType="bv">
+	
+	</select>
 </mapper>

@@ -169,7 +169,7 @@ public class BoardController {
 	@RequestMapping(value = "review/reviewWriteAction.aws")
 	public String boardWriteAction(BoardVo bv, @RequestParam("attachfile") MultipartFile attachfile,
 			HttpServletRequest request, RedirectAttributes rttr) throws Exception {
-
+		logger.info("reviewWriteAction에 들어옴"); 
 		MultipartFile file = attachfile;
 		String uploadedFileName = "";
 
@@ -185,17 +185,15 @@ public class BoardController {
 		bv.setMidx(midx_int);
 		bv.setIp(ip); 
 		// 게시판 정보 꼭 넣어야함
- 
-
 
 		String path = "";
 		int value = boardService.boardInsert(bv);
-
-		if (value == 2) {
-			path = "redirect:/board/boardList.aws";
+		System.out.print("value값은? : " + value);
+		if (value == 1) {
+			path = "redirect:/board/review/reviewList.aws";
 		} else {
 			rttr.addFlashAttribute("msg", "입력이잘못되었습니다");
-			path = "redirect:/board/boardWrite.aws";
+			path = "redirect:/board/review/reviewWrite.aws";
 		}
 
 		return path;

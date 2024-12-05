@@ -25,73 +25,45 @@
      <div class="container-tabname">📝Festival Review📝
     <p>여러분들의 생생한 축제 경험을 이야기를 들려주세요</p>
   </div>
+  
+  
+  <!--  시작   -->
   <div class="album py-5 bg-body-tertiary">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
+      <c:forEach items="${blist}" var="bv" varStatus="status" begin="0" end="2">
+        <div class="col"> 
+        <a href="${pageContext.request.contextPath}/board/review/reviewContents.aws?bidx=${bv.bidx}" class="card-link">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
               role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                dy=".3em">Thumbnail</text>
+              <title>리뷰 게시글로 이동!</title>
+			<c:if test="${not empty bv.fileName}">
+    		<image href="${pageContext.request.contextPath}/board/displayFile.aws?fileName=${bv.fileName}" width="100%" height="100%">
+			</c:if>
+             <rect width="100%" height="100%" fill="#55595c"/>
             </svg>
             <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
+              <p class="card-text"><a href="${pageContext.request.contextPath}/board/review/reviewContents.aws?bidx=${bv.bidx}">${bv.subject}
+                  </a></p>
               <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
+               <div class="board" style="border:none;">작성자 : ${bv.writer}
+            	</div>
+                <small class="board" style="border:none;">조회수 : ${bv.viewCnt}</small>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-              role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                dy=".3em">Thumbnail</text>
-            </svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card shadow-sm">
-            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-              role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-              <title>Placeholder</title>
-              <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                dy=".3em">Thumbnail</text>
-            </svg>
-            <div class="card-body">
-              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                </div>
-                <small class="text-body-secondary">9 mins</small>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+         </div>
+        </c:forEach>
+       </div>
+     </div>
+   </div>
+
+      
+      <!-- 끝 -->
+      
+      
+      
       <div class="container-board">
         <div class="row justify-content-center">
           <div class="col-12 col-md-6">
