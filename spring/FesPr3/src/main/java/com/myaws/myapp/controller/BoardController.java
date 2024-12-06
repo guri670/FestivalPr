@@ -55,11 +55,11 @@ public class BoardController {
 	public String festivalList(SearchCriteria scri, Model model) {
 		// logger.info("boardList에 들어옴");
 
-		int cnt = boardService.boardTotalCount(scri);
+		int cnt = boardService.festivalBoardTotalCount(scri);
 		pm.setScri(scri);
 		pm.setTotalCnt(cnt);
 
-		ArrayList<BoardVo> blist = boardService.boardSelectAll(scri);
+		ArrayList<BoardVo> blist = boardService.festivalBoardSelectAll(scri);
 
 		model.addAttribute("blist", blist);
 		model.addAttribute("pm", pm);
@@ -76,11 +76,45 @@ public class BoardController {
 		return path;
 	}
 
+	@RequestMapping(value = "festival/festivalWriteAction.aws")
+	public String festivalBoardWriteAction(BoardVo bv, @RequestParam("attachfile") MultipartFile attachfile,
+			HttpServletRequest request, RedirectAttributes rttr) throws Exception {
+		logger.info("reviewWriteAction에 들어옴"); 
+		MultipartFile file = attachfile;
+		String uploadedFileName = "";
+
+		if (!file.getOriginalFilename().equals("")) {
+			uploadedFileName = UploadFileUtiles.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+		}
+		String midx = request.getSession().getAttribute("midx").toString();
+		int midx_int = Integer.parseInt(midx);
+
+		String ip = userIp.getUserIp(request);
+
+		bv.setUploadedFilename(uploadedFileName);
+		bv.setMidx(midx_int);
+		bv.setIp(ip); 
+		// 게시판 정보 꼭 넣어야함
+
+		String path = "";
+		int value = boardService.festivalBoardInsert(bv);
+		System.out.print("value값은? : " + value);
+		if (value == 1) {
+			path = "redirect:/board/festival/festivalList.aws";
+		} else {
+			rttr.addFlashAttribute("msg", "입력이잘못되었습니다");
+			path = "redirect:/board/festival/festivalWrite.aws";
+		}
+
+		return path;
+
+	}
+	
 	@RequestMapping(value = "festival/festivalContents.aws")
 	public String festivalContents(@RequestParam("bidx") int bidx, Model model) {
 
-		boardService.boardViewCntUpdate(bidx);
-		BoardVo bv = boardService.boardSelectOne(bidx);
+		boardService.festivalBoardViewCntUpdate(bidx);
+		BoardVo bv = boardService.festivalBoardSelectOne(bidx);
 		model.addAttribute("bv", bv);
 
 		String path = "WEB-INF/board/festival/festivalContents";
@@ -90,21 +124,25 @@ public class BoardController {
 	@RequestMapping(value = "festival/festivalModify.aws")
 	public String feativalModify(@RequestParam("bidx") int bidx, Model model) {
 
-		BoardVo bv = boardService.boardSelectOne(bidx);
+		BoardVo bv = boardService.festivalBoardSelectOne(bidx);
 		model.addAttribute("bv", bv);
 
 		String path = "WEB-INF/board/festival/festivalModify";
 		return path;
 	}
+	
+	
+	
+	
 	@RequestMapping(value = "qna/qnaList.aws")
 	public String qnaList(SearchCriteria scri, Model model) {
 		// logger.info("boardList에 들어옴");
 
-		int cnt = boardService.boardTotalCount(scri);
+		int cnt = boardService.qnaBoardTotalCount(scri);
 		pm.setScri(scri);
 		pm.setTotalCnt(cnt);
 
-		ArrayList<BoardVo> blist = boardService.boardSelectAll(scri);
+		ArrayList<BoardVo> blist = boardService.qnaBoardSelectAll(scri);
 
 		model.addAttribute("blist", blist);
 		model.addAttribute("pm", pm);
@@ -121,11 +159,45 @@ public class BoardController {
 		return path;
 	}
 
+	@RequestMapping(value = "qna/qnaWriteAction.aws")
+	public String qnaBoardWriteAction(BoardVo bv, @RequestParam("attachfile") MultipartFile attachfile,
+			HttpServletRequest request, RedirectAttributes rttr) throws Exception {
+		logger.info("reviewWriteAction에 들어옴"); 
+		MultipartFile file = attachfile;
+		String uploadedFileName = "";
+
+		if (!file.getOriginalFilename().equals("")) {
+			uploadedFileName = UploadFileUtiles.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+		}
+		String midx = request.getSession().getAttribute("midx").toString();
+		int midx_int = Integer.parseInt(midx);
+
+		String ip = userIp.getUserIp(request);
+
+		bv.setUploadedFilename(uploadedFileName);
+		bv.setMidx(midx_int);
+		bv.setIp(ip); 
+		// 게시판 정보 꼭 넣어야함
+
+		String path = "";
+		int value = boardService.qnaBoardInsert(bv);
+		System.out.print("value값은? : " + value);
+		if (value == 1) {
+			path = "redirect:/board/qna/qnaList.aws";
+		} else {
+			rttr.addFlashAttribute("msg", "입력이잘못되었습니다");
+			path = "redirect:/board/qna/qnaWrite.aws";
+		}
+
+		return path;
+
+	}
+	
 	@RequestMapping(value = "qna/qnaContents.aws")
 	public String qnaContents(@RequestParam("bidx") int bidx, Model model) {
 
-		boardService.boardViewCntUpdate(bidx);
-		BoardVo bv = boardService.boardSelectOne(bidx);
+		boardService.qnaBoardViewCntUpdate(bidx);
+		BoardVo bv = boardService.qnaBoardSelectOne(bidx);
 		model.addAttribute("bv", bv);
 
 		String path = "WEB-INF/board/qna/qnaContents";
@@ -135,21 +207,25 @@ public class BoardController {
 	@RequestMapping(value = "qna/qnaModify.aws")
 	public String qnaModify(@RequestParam("bidx") int bidx, Model model) {
 
-		BoardVo bv = boardService.boardSelectOne(bidx);
+		BoardVo bv = boardService.qnaBoardSelectOne(bidx);
 		model.addAttribute("bv", bv);
 
 		String path = "WEB-INF/board/qna/qnaModify";
 		return path;
 	}
+	
+	
+	
+	
 	@RequestMapping(value = "review/reviewList.aws")
 	public String reviewList(SearchCriteria scri, Model model) {
 		// logger.info("boardList에 들어옴");
 
-		int cnt = boardService.boardTotalCount(scri);
+		int cnt = boardService.reviewBoardTotalCount(scri);
 		pm.setScri(scri);
 		pm.setTotalCnt(cnt);
 
-		ArrayList<BoardVo> blist = boardService.boardSelectAll(scri);
+		ArrayList<BoardVo> blist = boardService.reviewBoardSelectAll(scri);
 
 		model.addAttribute("blist", blist);
 		model.addAttribute("pm", pm);
@@ -187,7 +263,7 @@ public class BoardController {
 		// 게시판 정보 꼭 넣어야함
 
 		String path = "";
-		int value = boardService.boardInsert(bv);
+		int value = boardService.reviewBoardInsert(bv);
 		System.out.print("value값은? : " + value);
 		if (value == 1) {
 			path = "redirect:/board/review/reviewList.aws";
@@ -203,8 +279,8 @@ public class BoardController {
 	@RequestMapping(value = "review/reviewContents.aws")
 	public String reviewContents(@RequestParam("bidx") int bidx, Model model) {
 
-		boardService.boardViewCntUpdate(bidx);
-		BoardVo bv = boardService.boardSelectOne(bidx);
+		boardService.reviewBoardViewCntUpdate(bidx);
+		BoardVo bv = boardService.reviewBoardSelectOne(bidx);
 		model.addAttribute("bv", bv);
 
 		String path = "WEB-INF/board/review/reviewContents";
@@ -214,7 +290,7 @@ public class BoardController {
 	@RequestMapping(value = "review/reviewModify.aws")
 	public String reviewModify(@RequestParam("bidx") int bidx, Model model) {
 
-		BoardVo bv = boardService.boardSelectOne(bidx);
+		BoardVo bv = boardService.reviewBoardSelectOne(bidx);
 		model.addAttribute("bv", bv);
 
 		String path = "WEB-INF/board/review/reviewModify";

@@ -15,28 +15,28 @@
 
 
 
-	<select id="boardSelectAll" parameterType="HashMap" resultType="bv">
+	<select id="festivalBoardSelectAll" parameterType="HashMap" resultType="bv">
 		select * from board where delyn='N'order by bidx desc
 		<include refid="search" />
 		limit #{startPageNum},#{perPageNum}
 	</select>
 
-	<select id="boardTotalCount" parameterType="scri"
+	<select id="festivalBoardTotalCount" parameterType="scri"
 		resultType="int">
 		select count(*) as cnt from board where delyn='N'
 		<include refid="search" />
 	</select>
 
-	<select id="boardSelectOne" parameterType="int" resultType="bv">
+	<select id="festivalBoardSelectOne" parameterType="int" resultType="bv">
 		select * from board where delyn='N' and bidx=#{bidx}
 	</select>
 
-	<insert id="boardViewCntUpdate" parameterType="int">
+	<insert id="festivalBoardViewCntUpdate" parameterType="int">
 		update board set
 		viewcnt = viewcnt + 1 where bidx= #{bidx}
 	</insert>
 	
-	<insert id="boardInsert" parameterType="bv">
+	<insert id="festivalBoardInsert" parameterType="bv">
 		<selectKey keyProperty="bidx" resultType="int" order="AFTER">
 			select
 			max(bidx) as bidx from board
@@ -46,20 +46,114 @@
 		value(#{subject},#{contents},#{writer},#{midx},#{uploadedFilename},#{ip})
 	</insert>
 	
-		<update id="boardDelete" parameterType="HashMap">
+		<update id="festivalBoardDelete" parameterType="HashMap">
 		update board set delyn ='Y', 
 		modifyday=now() where bidx=#{bidx} 
 		and midx=#{midx}
 	</update>
 	
-	<update id="boardUpdate" parameterType="bv">
+	<update id="festivalBoardUpdate" parameterType="bv">
 		update board set
 		subject=#{subject}, contents=#{contents}, writer=#{writer},
 		modifyday=now(), filename=#{uploadedFilename} where bidx=#{bidx} 
 		and midx=#{midx}
 	</update>
 	
-	<select id="lastestReview" parameterType="bv">
 	
+	
+		<select id="qnaBoardSelectAll" parameterType="HashMap" resultType="bv">
+		select * from board where delyn='N'order by bidx desc
+		<include refid="search" />
+		limit #{startPageNum},#{perPageNum}
 	</select>
+
+	<select id="qnaBoardTotalCount" parameterType="scri"
+		resultType="int">
+		select count(*) as cnt from board where delyn='N'
+		<include refid="search" />
+	</select>
+
+	<select id="qnaBoardSelectOne" parameterType="int" resultType="bv">
+		select * from board where delyn='N' and bidx=#{bidx}
+	</select>
+
+	<insert id="qnaBoardViewCntUpdate" parameterType="int">
+		update board set
+		viewcnt = viewcnt + 1 where bidx= #{bidx}
+	</insert>
+	
+	<insert id="qnaBoardInsert" parameterType="bv">
+		<selectKey keyProperty="bidx" resultType="int" order="AFTER">
+			select
+			max(bidx) as bidx from board
+		</selectKey>
+		insert into board
+		(subject,contents,writer,midx,fileName,ip)
+		value(#{subject},#{contents},#{writer},#{midx},#{uploadedFilename},#{ip})
+	</insert>
+	
+		<update id="qnaBoardDelete" parameterType="HashMap">
+		update board set delyn ='Y', 
+		modifyday=now() where bidx=#{bidx} 
+		and midx=#{midx}
+	</update>
+	
+	<update id="qnaBoardUpdate" parameterType="bv">
+		update board set
+		subject=#{subject}, contents=#{contents}, writer=#{writer},
+		modifyday=now(), filename=#{uploadedFilename} where bidx=#{bidx} 
+		and midx=#{midx}
+	</update>
+	
+	
+	
+		<select id="reviewBoardSelectAll" parameterType="HashMap" resultType="bv">
+		select * from board where delyn='N'order by bidx desc
+		<include refid="search" />
+		limit #{startPageNum},#{perPageNum}
+	</select>
+
+	<select id="reviewBoardTotalCount" parameterType="scri"
+		resultType="int">
+		select count(*) as cnt from board where delyn='N'
+		<include refid="search" />
+	</select>
+
+	<select id="reviewBoardSelectOne" parameterType="int" resultType="bv">
+		select * from board where delyn='N' and bidx=#{bidx}
+	</select>
+
+	<insert id="reviewBoardViewCntUpdate" parameterType="int">
+		update board set
+		viewcnt = viewcnt + 1 where bidx= #{bidx}
+	</insert>
+	
+	<insert id="reviewBoardInsert" parameterType="bv">
+		<selectKey keyProperty="bidx" resultType="int" order="AFTER">
+			select
+			max(bidx) as bidx from board
+		</selectKey>
+		insert into board
+		(subject,contents,writer,midx,fileName,ip)
+		value(#{subject},#{contents},#{writer},#{midx},#{uploadedFilename},#{ip})
+	</insert>
+	
+		<update id="reviewBoardDelete" parameterType="HashMap">
+		update board set delyn ='Y', 
+		modifyday=now() where bidx=#{bidx} 
+		and midx=#{midx}
+	</update>
+	
+	<update id="reviewBoardUpdate" parameterType="bv">
+		update board set
+		subject=#{subject}, contents=#{contents}, writer=#{writer},
+		modifyday=now(), filename=#{uploadedFilename} where bidx=#{bidx} 
+		and midx=#{midx}
+	</update>
+	
+	
+
+	
+	
+	
 </mapper>

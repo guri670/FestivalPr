@@ -22,7 +22,7 @@ public class BoardServiceImpl implements BoardService{
 	}
 
 	@Override
-	public ArrayList<BoardVo> boardSelectAll(SearchCriteria scri) {
+	public ArrayList<BoardVo> festivalBoardSelectAll(SearchCriteria scri) {
 		
 		HashMap<String,Object> hm = new HashMap<String,Object>();
 		hm.put("startPageNum",(scri.getPage()-1)*scri.getPerPageNum());
@@ -30,54 +30,54 @@ public class BoardServiceImpl implements BoardService{
 		hm.put("searchType", scri.getSearchType());
 		hm.put("keyword", scri.getKeyword());	
 		
-		ArrayList<BoardVo> blist = bm.boardSelectAll(hm);
+		ArrayList<BoardVo> blist = bm.festivalBoardSelectAll(hm);
 		
 		
 		return blist;
 	}
 
 	@Override
-	public int boardTotalCount(SearchCriteria scri) {
+	public int festivalBoardTotalCount(SearchCriteria scri) {
 		
 
-		int cnt = bm.boardTotalCount(scri);
+		int cnt = bm.festivalBoardTotalCount(scri);
 
 		return cnt;
 	}
 	
 	@Override
-	public BoardVo boardSelectOne(int bidx) {
-		BoardVo bv = bm.boardSelectOne(bidx);
+	public BoardVo festivalBoardSelectOne(int bidx) {
+		BoardVo bv = bm.festivalBoardSelectOne(bidx);
 		
 		return bv;
 	}
 
 	@Override
-	public int boardViewCntUpdate(int bidx) {
-		int cnt = bm.boardViewCntUpdate(bidx);
+	public int festivalBoardViewCntUpdate(int bidx) {
+		int cnt = bm.festivalBoardViewCntUpdate(bidx);
 		
 		return cnt;
 	}
 	
 	@Override
 	@Transactional
-	public int boardInsert(BoardVo bv) {
+	public int festivalBoardInsert(BoardVo bv) {
 		
-		int value = bm.boardInsert(bv);
+		int value = bm.festivalBoardInsert(bv);
 		
 		return value;
 	}
 
 	@Override
-	public int boardUpdate(BoardVo bv) {
+	public int festivalBoardUpdate(BoardVo bv) {
 
-		int value = bm.boardUpdate(bv);
+		int value = bm.festivalBoardUpdate(bv);
 		
 		return value;
 	}
 	
 	@Override
-	public int boardDelete(int bidx, int midx, String password) {
+	public int festivalBoardDelete(int bidx, int midx, String password) {
 		
 		HashMap<String,Object> hm = new HashMap<String,Object>();
 		hm.put("bidx", bidx);
@@ -85,7 +85,150 @@ public class BoardServiceImpl implements BoardService{
 		hm.put("password", password);
 		// bidx, midx password 매개변수를 hashmap에 담는다
 		
-		int cnt = bm.boardDelete(hm);
+		int cnt = bm.festivalBoardDelete(hm);
+		
+		return cnt;
+	}
+	
+	
+	
+	@Override
+	public ArrayList<BoardVo> qnaBoardSelectAll(SearchCriteria scri) {
+		
+		HashMap<String,Object> hm = new HashMap<String,Object>();
+		hm.put("startPageNum",(scri.getPage()-1)*scri.getPerPageNum());
+		hm.put("perPageNum", scri.getPerPageNum());
+		hm.put("searchType", scri.getSearchType());
+		hm.put("keyword", scri.getKeyword());	
+		
+		ArrayList<BoardVo> blist = bm.qnaBoardSelectAll(hm);
+		
+		
+		return blist;
+	}
+
+	@Override
+	public int qnaBoardTotalCount(SearchCriteria scri) {
+		
+
+		int cnt = bm.qnaBoardTotalCount(scri);
+
+		return cnt;
+	}
+	
+	@Override
+	public BoardVo qnaBoardSelectOne(int bidx) {
+		BoardVo bv = bm.qnaBoardSelectOne(bidx);
+		
+		return bv;
+	}
+
+	@Override
+	public int qnaBoardViewCntUpdate(int bidx) {
+		int cnt = bm.qnaBoardViewCntUpdate(bidx);
+		
+		return cnt;
+	}
+	
+	@Override
+	@Transactional
+	public int qnaBoardInsert(BoardVo bv) {
+		
+		int value = bm.qnaBoardInsert(bv);
+		
+		return value;
+	}
+
+	@Override
+	public int qnaBoardUpdate(BoardVo bv) {
+
+		int value = bm.qnaBoardUpdate(bv);
+		
+		return value;
+	}
+	
+	@Override
+	public int qnaBoardDelete(int bidx, int midx, String password) {
+		
+		HashMap<String,Object> hm = new HashMap<String,Object>();
+		hm.put("bidx", bidx);
+		hm.put("midx", midx);
+		hm.put("password", password);
+		// bidx, midx password 매개변수를 hashmap에 담는다
+		
+		int cnt = bm.qnaBoardDelete(hm);
+		
+		return cnt;
+	}
+	
+	
+	
+	
+	@Override
+	public ArrayList<BoardVo> reviewBoardSelectAll(SearchCriteria scri) {
+		
+		HashMap<String,Object> hm = new HashMap<String,Object>();
+		hm.put("startPageNum",(scri.getPage()-1)*scri.getPerPageNum());
+		hm.put("perPageNum", scri.getPerPageNum());
+		hm.put("searchType", scri.getSearchType());
+		hm.put("keyword", scri.getKeyword());	
+		
+		ArrayList<BoardVo> blist = bm.reviewBoardSelectAll(hm);
+		
+		
+		return blist;
+	}
+
+	@Override
+	public int reviewBoardTotalCount(SearchCriteria scri) {
+		
+
+		int cnt = bm.reviewBoardTotalCount(scri);
+
+		return cnt;
+	}
+	
+	@Override
+	public BoardVo reviewBoardSelectOne(int bidx) {
+		BoardVo bv = bm.reviewBoardSelectOne(bidx);
+		
+		return bv;
+	}
+
+	@Override
+	public int reviewBoardViewCntUpdate(int bidx) {
+		int cnt = bm.reviewBoardViewCntUpdate(bidx);
+		
+		return cnt;
+	}
+	
+	@Override
+	@Transactional
+	public int reviewBoardInsert(BoardVo bv) {
+		
+		int value = bm.reviewBoardInsert(bv);
+		
+		return value;
+	}
+
+	@Override
+	public int reviewBoardUpdate(BoardVo bv) {
+
+		int value = bm.reviewBoardUpdate(bv);
+		
+		return value;
+	}
+	
+	@Override
+	public int reviewBoardDelete(int bidx, int midx, String password) {
+		
+		HashMap<String,Object> hm = new HashMap<String,Object>();
+		hm.put("bidx", bidx);
+		hm.put("midx", midx);
+		hm.put("password", password);
+		// bidx, midx password 매개변수를 hashmap에 담는다
+		
+		int cnt = bm.reviewBoardDelete(hm);
 		
 		return cnt;
 	}
