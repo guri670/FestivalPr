@@ -53,6 +53,6 @@ public interface BoardService {
 
 	public int reviewBoardUpdate(BoardVo bv);
 
-	
+	public ArrayList<BoardVo> reviewBoardSelectFive(SearchCriteria scri);
 	
 }

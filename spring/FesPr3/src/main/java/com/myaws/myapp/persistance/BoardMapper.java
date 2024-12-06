@@ -55,6 +55,8 @@ public interface BoardMapper {
 	public int reviewBoardDelete(HashMap hm); // 매개변수가 3개이기때문에 -> impl에서 hashmap 설정
 	
 	public int reviewBoardUpdate(BoardVo bv);
+	
+	public ArrayList<BoardVo> reviewBoardSelectFive(HashMap<String,Object> hm);
 
 }
 

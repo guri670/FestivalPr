@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
@@ -131,8 +132,69 @@ public class BoardController {
 		return path;
 	}
 	
+	@RequestMapping(value = "festival/festivalModifyAction.aws")
+	// 컨트롤러 완성하고 서비스를 불러온다.
+	public String festivalModifyAction(BoardVo bv, // bv객체 안에 값들이 담겨져있다.
+			@RequestParam("attachfile") MultipartFile attachfile, HttpServletRequest request, RedirectAttributes rttr)
+			throws Exception {
+
+		int value = 0;
+
+		MultipartFile file = attachfile;
+		String uploadedFileName = "";
+
+		if (!file.getOriginalFilename().equals("")) {
+			uploadedFileName = UploadFileUtiles.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+		}
+
+		String midx = request.getSession().getAttribute("midx").toString();
+		int midx_int = Integer.parseInt(midx);
+
+		String ip = userIp.getUserIp(request);
+
+		bv.setUploadedFilename(uploadedFileName); // filename 칼럼값으로 넣는다.
+		bv.setMidx(midx_int);
+		bv.setIp(ip);
+		// 파일 업로드를 하고 update를 하기 위한 service를 만든다.
+
+		value = boardService.festivalBoardUpdate(bv);
+
+		String path = "";
+
+		if (value == 0) {
+			rttr.addFlashAttribute("msg", "작성자가 아니거나 비밀번호가 다릅니다.");
+			path = "redirect:/board/festival/festivalModify.aws?bidx=" + bv.getBidx();
+		} else {
+			path = "redirect:/board/festival/festivalContents.aws?bidx=" + bv.getBidx();
+		}
+
+		return path;
+	}
 	
+	@RequestMapping(value = "festival/festivalDelete.aws")
+	public String festivalBoardDelete(@RequestParam("bidx") int bidx, Model model) {
+
+		model.addAttribute("bidx", bidx);
+		String path = "WEB-INF/board/festival/festivalDelete";
+
+		return path;
+	}
 	
+	@RequestMapping(value = "festival/festivalDeleteAction.aws", method = RequestMethod.POST)
+	public String festivalBoardDeleteAction(@RequestParam("bidx") int bidx, @RequestParam("password") String password,
+			HttpSession session) { // json형식으로 넘겨야한다 모를때 타입을 ? 를 넣어도된다.
+
+		int midx = Integer.parseInt(session.getAttribute("midx").toString());
+		int value = boardService.festivalBoardDelete(bidx, midx, password);
+
+		String path = "redirect:/board/festival/festivalList.aws";
+		if (value == 0) {
+			path = "redirect:/board/festival/festivalDelete.aws?bidx=" + bidx;
+		}
+		return path;
+	}
+
+
 	
 	@RequestMapping(value = "qna/qnaList.aws")
 	public String qnaList(SearchCriteria scri, Model model) {
@@ -214,6 +276,66 @@ public class BoardController {
 		return path;
 	}
 	
+	@RequestMapping(value = "qna/qnaModifyAction.aws")
+	public String qnaModifyAction(BoardVo bv, // bv객체 안에 값들이 담겨져있다.
+			@RequestParam("attachfile") MultipartFile attachfile, HttpServletRequest request, RedirectAttributes rttr)
+			throws Exception {
+
+		int value = 0;
+
+		MultipartFile file = attachfile;
+		String uploadedFileName = "";
+
+		if (!file.getOriginalFilename().equals("")) {
+			uploadedFileName = UploadFileUtiles.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+		}
+
+		String midx = request.getSession().getAttribute("midx").toString();
+		int midx_int = Integer.parseInt(midx);
+
+		String ip = userIp.getUserIp(request);
+
+		bv.setUploadedFilename(uploadedFileName); // filename 칼럼값으로 넣는다.
+		bv.setMidx(midx_int);
+		bv.setIp(ip);
+		// 파일 업로드를 하고 update를 하기 위한 service를 만든다.
+
+		value = boardService.qnaBoardUpdate(bv);
+
+		String path = "";
+
+		if (value == 0) {
+			rttr.addFlashAttribute("msg", "작성자가 아니거나 비밀번호가 다릅니다.");
+			path = "redirect:/board/qna/qnaModify.aws?bidx=" + bv.getBidx();
+		} else {
+			path = "redirect:/board/qna/qnaContents.aws?bidx=" + bv.getBidx();
+		}
+
+		return path;
+	}
+	
+	@RequestMapping(value = "qna/qnaDelete.aws")
+	public String qnaBoardDelete(@RequestParam("bidx") int bidx, Model model) {
+
+		model.addAttribute("bidx", bidx);
+		String path = "WEB-INF/board/qna/qnaDelete";
+
+		return path;
+	}
+	
+	@RequestMapping(value = "qna/qnaDeleteAction.aws", method = RequestMethod.POST)
+	public String qnaBoardDeleteAction(@RequestParam("bidx") int bidx, @RequestParam("password") String password,
+			HttpSession session) { // json형식으로 넘겨야한다 모를때 타입을 ? 를 넣어도된다.
+
+		int midx = Integer.parseInt(session.getAttribute("midx").toString());
+		int value = boardService.festivalBoardDelete(bidx, midx, password);
+
+		String path = "redirect:/board/qna/qnaList.aws";
+		if (value == 0) {
+			path = "redirect:/board/qna/qnaDelete.aws?bidx=" + bidx;
+		}
+		return path;
+	}
 	
 	
 	
@@ -294,6 +416,67 @@ public class BoardController {
 		model.addAttribute("bv", bv);
 
 		String path = "WEB-INF/board/review/reviewModify";
+		return path;
+	}
+	
+	@RequestMapping(value = "review/reviewModifyAction.aws")
+	public String reviewModifyAction(BoardVo bv, // bv객체 안에 값들이 담겨져있다.
+			@RequestParam("attachfile") MultipartFile attachfile, HttpServletRequest request, RedirectAttributes rttr)
+			throws Exception {
+
+		int value = 0;
+
+		MultipartFile file = attachfile;
+		String uploadedFileName = "";
+
+		if (!file.getOriginalFilename().equals("")) {
+			uploadedFileName = UploadFileUtiles.uploadFile(uploadPath, file.getOriginalFilename(), file.getBytes());
+		}
+
+		String midx = request.getSession().getAttribute("midx").toString();
+		int midx_int = Integer.parseInt(midx);
+
+		String ip = userIp.getUserIp(request);
+
+		bv.setUploadedFilename(uploadedFileName); // filename 칼럼값으로 넣는다.
+		bv.setMidx(midx_int);
+		bv.setIp(ip);
+		// 파일 업로드를 하고 update를 하기 위한 service를 만든다.
+
+		value = boardService.reviewBoardUpdate(bv);
+
+		String path = "";
+
+		if (value == 0) {
+			rttr.addFlashAttribute("msg", "작성자가 아니거나 비밀번호가 다릅니다.");
+			path = "redirect:/board/review/reviewModify.aws?bidx=" + bv.getBidx();
+		} else {
+			path = "redirect:/board/review/reviewContents.aws?bidx=" + bv.getBidx();
+		}
+
+		return path;
+	}
+	
+	@RequestMapping(value = "review/reviewDelete.aws")
+	public String reviewBoardDelete(@RequestParam("bidx") int bidx, Model model) {
+
+		model.addAttribute("bidx", bidx);
+		String path = "WEB-INF/board/festival/festivalDelete";
+
+		return path;
+	}
+	
+	@RequestMapping(value = "review/reviewDeleteAction.aws", method = RequestMethod.POST)
+	public String reviewDeleteAction(@RequestParam("bidx") int bidx, @RequestParam("password") String password,
+			HttpSession session) { // json형식으로 넘겨야한다 모를때 타입을 ? 를 넣어도된다.
+
+		int midx = Integer.parseInt(session.getAttribute("midx").toString());
+		int value = boardService.festivalBoardDelete(bidx, midx, password);
+
+		String path = "redirect:/board/review/reviewList.aws";
+		if (value == 0) {
+			path = "redirect:/board/review/reviewDelete.aws?bidx=" + bidx;
+		}
 		return path;
 	}
 	

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import ="java.util.*" %>
+<%@page import ="com.myaws.myapp.domain.*" %>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <head>
@@ -71,17 +73,19 @@
     <div class="container-board">
         <div class="row justify-content-center">
             <div class="col-12 col-md-6">
+				<div class="main_info">
+					<h3>최신 축제 정보</h3>
+				</div>
                 <div>
                     <br>
-                    <h3>축제 정보</h3>
-                    <form class="d-flex" role="search">
-                        <select>
-                            <option value="subject">제목</option>
-                            <option value="writer">지역</option>
-                        </select>
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                   <form class="d-flex" role="search" name=frm action="${pageContext.request.contextPath}/board/festival/festivalList.aws" method="get">
+                <select>
+                  <option value="subject">제목</option>
+                  <option value="writer">작성자</option>
+                </select>
+                <input class="form-control me-2" type="text" name="keyword" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
                     <br>
                 </div>
                 <div class="card mb-3">
@@ -94,64 +98,38 @@
                                 <div class="board-writeday">작성일</div>
                                 <div class="board-viewcnt">조회</div>
                             </div>
-                            <div>
-                                <div class="board-bidx">5</div>
-                                <div class="board-subject"><a href="/html2/festival/FestivalContents.html">글 제목이
-                                        들어갑니다.</a></div>
-                                <div class="board-writer">김이름</div>
-                                <div class="board-writeday">2021.1.15</div>
-                                <div class="board-viewcnt">33</div>
-                            </div>
-                            <div>
-                                <div class="board-bidx">5</div>
-                                <div class="board-subject"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                                <div class="board-writer">김이름</div>
-                                <div class="board-writeday">2021.1.15</div>
-                                <div class="board-viewcnt">33</div>
-                            </div>
-                            <div>
-                                <div class="board-bidx">5</div>
-                                <div class="board-subject"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                                <div class="board-writer">김이름</div>
-                                <div class="board-writeday">2021.1.15</div>
-                                <div class="board-viewcnt">33</div>
-                            </div>
-                            <div>
-                                <div class="board-bidx">5</div>
-                                <div class="board-subject"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                                <div class="board-writer">김이름</div>
-                                <div class="board-writeday">2021.1.15</div>
-                                <div class="board-viewcnt">33</div>
-                            </div>
-                            <div>
-                                <div class="board-bidx">5</div>
-                                <div class="board-subject"><a href="view.html">글 제목이 들어갑니다.</a></div>
-                                <div class="board-writer">김이름</div>
-                                <div class="board-writeday">2021.1.15</div>
-                                <div class="board-viewcnt">33</div>
+                            <c:forEach items="${blist}" var ="bv" varStatus="status">
+                			<div>
+			                  <div class="board-bidx">${bv.bidx}</div>
+			                  <div class="board-subject"><a href="${pageContext.request.contextPath}/board/festival/festivalContents.aws?bidx=${bv.bidx}">${bv.subject}
+			                  </a></div>
+			                  <div class="board-writer">${bv.writer}</div>
+			                  <div class="board-writeday">${bv.writeday}</div>
+			                  <div class="board-viewcnt">${bv.viewCnt}</div>
+			                </div>
+			                </c:forEach>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 	<div class="page">
 		<ul>
 		<c:if test= "${pm.prev == true}">
-		<li><a href="${pageContext.request.contextPath}/board/review/reviewList.aws?page=${pm.startPage-1}&${queryParam}"></a>◀</li>
+		<li><a href="${pageContext.request.contextPath}/board/festival/festivalList.aws?page=${pm.startPage-1}&${queryParam}"></a>◀</li>
 		</c:if>
 
 
 		<c:forEach var="i" begin="${pm.startPage}" end="${pm.endPage}" step="1"> 
 		<li <c:if test="${i==pm.scri.page}"> class='on' </c:if>	>		
-		<a href="${pageContext.request.contextPath}/board/review/reviewList.aws?page=${i}&${queryParam}">
+		<a href="${pageContext.request.contextPath}/board/festival/festivalList.aws?page=${i}&${queryParam}">
 		<span style="font-size:20px;">${i}</span></a>
 		</li>
 		</c:forEach> 
 		
 		<c:if test="${pm.next == true}">
-		<li><a href="${pageContext.request.contextPath}/board/review/reviewList.aws?page=${pm.endPage+1}&${queryParam}">▶</a></li>
+		<li><a href="${pageContext.request.contextPath}/board/festival/festivalList.aws?page=${pm.endPage+1}&${queryParam}">▶</a></li>
 		</c:if>
 		
 		</ul>

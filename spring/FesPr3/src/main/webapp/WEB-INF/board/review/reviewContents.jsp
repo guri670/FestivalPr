@@ -244,7 +244,7 @@ $(document).ready(function(){
 						<label for="cwriter" class="form-label"></label> <input
 							type="text" id="cwriter" name="cwriter" value="${memberNickName}"
 							readonly="readonly" class="form-control"
-							style="width: 100px; border: none; font-size: 1.4rem;">
+							style="width: 100%; border: none; font-size: 1rem;">
 					</p>
 					<div class="input-group mb-3">
 						<input type="text" id="ccontents" name="ccontents"
@@ -264,13 +264,12 @@ $(document).ready(function(){
 			<div class="button-box">
 				<div class="d-flex justify-content-between">
 
-					<button id="editBtn" class="btn btn-primary" style="display: none;">
+					<button id="editBtn" class="btn btn-primary">
 						<a
 							href="${pageContext.request.contextPath}/board/review/reviewModify.aws?bidx=${bv.bidx}">수정</a>
 					</button>
-					<button id="deleteBtn" class="btn btn-secondary"
-						style="display: none;">
-						<a href="javascript:void(0);">삭제</a>
+					<button id="deleteBtn" class="btn btn-secondary">
+						<a href="${pageContext.request.contextPath}/board/review/reviewDelete.aws?bidx=${bv.bidx}">삭제</a>
 					</button>
 					<button class="btn btn-secondary">
 						<a

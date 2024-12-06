@@ -15,7 +15,7 @@
           <li><a href="${pageContext.request.contextPath}/index.aws" class="nav-link px-2 link-secondary">Home</a></li>
           <li><a href="${pageContext.request.contextPath}/board/festival/festivalList.aws" class="nav-link px-2">Festival Info</a></li>
           <li><a href="${pageContext.request.contextPath}/board/review/reviewList.aws" class="nav-link px-2">Festival Review</a></li>
-          <li><a href="#" class="nav-link px-2">MyPage</a></li>
+          <!-- <li><a href="#" class="nav-link px-2">MyPage</a></li> -->
           <li><a href="${pageContext.request.contextPath}/board/qna/qnaList.aws" class="nav-link px-2">QnA</a></li>
         </ul>
       </div>

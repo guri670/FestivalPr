@@ -23,6 +23,25 @@ VALUES
 ('테크 서밋', '최신 기술 혁신이 소개되는 테크 서밋입니다.', 'Admin', NULL, 0, '2024-11-25 08:27:57', 'N', NULL, 2, 1),
 ('헬스 엑스포', '건강 검진과 피트니스 클래스가 제공되는 헬스 엑스포입니다.', 'Admin', NULL, 0, '2024-11-24 08:27:57', 'N', NULL, 2, 1);
 
+-- 축제정보페이지 샘플 데이터 입력
+INSERT INTO board (subject, contents, writer, fileName, viewCnt, writeday, delyn, modifyWriteday, boardInfo, midx)
+VALUES
+('대전 축제', '대전 축제에 여러분들을 환영합니다.', 'Admin', NULL, 0, '2024-12-01 15:45:23', 'N', NULL, 0, 1),
+('서울 축제', '서울 축제에 여러분들을 환영합니다.', 'Admin', NULL, 0, '2024-12-04 13:36:23', 'N', NULL, 0, 1),
+('대구 축제', '대구 축제에 여러분들을 환영합니다.', 'Admin', NULL, 0, '2024-12-06 09:57:14', 'N', NULL, 0, 1),
+('부산 축제', '부산 축제에 여러분들을 환영합니다.', 'Admin', NULL, 0, '2024-11-30 18:27:57', 'N', NULL, 0, 1);
+
+-- 문의페이지 샘플 데이터 입력
+INSERT INTO board (subject, contents, writer, fileName, viewCnt, writeday, delyn, modifyWriteday, boardInfo, midx)
+VALUES
+('문의 드립니다', '문의합니다.', 'test', NULL, 0, '2024-12-03 17:30:23', 'N', NULL, 1, 1),
+('어디가면 될까요', '대전 축제는 어디서 하나요?', 'test', NULL, 0, '2024-12-01 12:36:23', 'N', NULL, 1, 1);
+
+-- boardInfo 정보중 null 값인 데이터 삭제
+DELETE FROM board
+WHERE boardInfo IS NULL;
+
+
 -- 멤버 테이블에 아이피 추가
 ALTER TABLE MEMBER
 ADD COLUMN memberip VARCHAR(20) NULL;
@@ -35,6 +54,14 @@ ADD COLUMN cwriter varchar(100) NULL;
 ALTER TABLE board
 ADD COLUMN tumbnail VARCHAR(100) NULL;
 
+ALTER TABLE board
+ADD COLUMN startDate VARCHAR(20) NULL;
+ADD COLUMN endDate VARCHAR(20) NULL;
+
 ALTER TABLE board MODIFY boardInfo char(2) NULL;
 
 select * from board
+
+select count(*) as cnt from board where delyn='N'AND boardInfo = 0
+
+

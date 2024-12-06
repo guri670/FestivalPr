@@ -67,9 +67,11 @@
       <div class="container-board">
         <div class="row justify-content-center">
           <div class="col-12 col-md-6">
+            <div class="main_info">
+				<h3>축제 후기</h3>
+			</div>
             <div>
               <br>
-              <h3>축제 후기</h3>
               <form class="d-flex" role="search" name=frm action="${pageContext.request.contextPath}/board/review/reviewList.aws" method="get">
                 <select>
                   <option value="subject">제목</option>

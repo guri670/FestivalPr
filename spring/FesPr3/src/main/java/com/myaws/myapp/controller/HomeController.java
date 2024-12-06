@@ -11,24 +11,30 @@ import com.myaws.myapp.domain.BoardVo;
 import com.myaws.myapp.domain.PageMaker;
 import com.myaws.myapp.domain.SearchCriteria;
 import com.myaws.myapp.service.BoardService;
-import com.myaws.myapp.service.HomeService;
 
 @Controller
 @RequestMapping(value="")
 public class HomeController {
 	
 	@Autowired
-	private BoardService boardservice;
+	private BoardService boardService;
 	
 	@Autowired(required = false)
 	private PageMaker pm;
 
 	
-	
+	//index페이지에서 5개의 후기게시글 뿌리기 
 	@RequestMapping(value = "/index.aws")
 	public String index(SearchCriteria scri, Model model) {
 		// logger.info("boardList에 들어옴");		
 
+		int cnt = boardService.reviewBoardTotalCount(scri);
+		pm.setScri(scri);
+		pm.setTotalCnt(cnt);
+		
+		ArrayList<BoardVo> blist = boardService.reviewBoardSelectFive(scri);
+		
+		model.addAttribute("blist", blist);
 		model.addAttribute("value", "teststts");
 		
 
@@ -36,21 +42,4 @@ public class HomeController {
 		return path;
 	}
 
-	@RequestMapping(value = "review/reviewList.aws")
-	public String reviewList(SearchCriteria scri, Model model) {
-		// logger.info("boardList에 들어옴");
-
-		int cnt = boardService.reviewBoardTotalCount(scri);
-		pm.setScri(scri);
-		pm.setTotalCnt(cnt);
-
-		ArrayList<BoardVo> blist = boardService.reviewBoardSelectAll(scri);
-
-		model.addAttribute("blist", blist);
-		model.addAttribute("pm", pm);
-
-		String path = "WEB-INF/board/review/reviewList";
-		return path;
-	}
-	
 }

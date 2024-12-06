@@ -178,6 +178,20 @@ public class BoardServiceImpl implements BoardService{
 		
 		return blist;
 	}
+	
+	public ArrayList<BoardVo> reviewBoardSelectFive(SearchCriteria scri) {
+		
+		HashMap<String,Object> hm = new HashMap<String,Object>();
+		hm.put("startPageNum",(scri.getPage()-1)*scri.getPerPageNum());
+		hm.put("perPageNum", scri.getPerPageNum());
+		hm.put("searchType", scri.getSearchType());
+		hm.put("keyword", scri.getKeyword());	
+		
+		ArrayList<BoardVo> blist = bm.reviewBoardSelectFive(hm);
+		
+		
+		return blist;
+	}
 
 	@Override
 	public int reviewBoardTotalCount(SearchCriteria scri) {
