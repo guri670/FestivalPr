@@ -265,7 +265,7 @@ $(document).ready(function(){
 							href="${pageContext.request.contextPath}/board/festival/festivalModify.aws?bidx=${bv.bidx}">수정</a>
 					</button>
 					<button id="deleteBtn" class="btn btn-secondary">
-						<a href="${pageContext.request.contextPath}/board/festival/festivalDelete.aws?bidx=${bv.bidx}">삭제</a>
+						<a href="${pageContext.request.contextPath}/bo ard/festival/festivalDelete.aws?bidx=${bv.bidx}">삭제</a>
 					</button>
 					<button class="btn btn-secondary">
 						<a

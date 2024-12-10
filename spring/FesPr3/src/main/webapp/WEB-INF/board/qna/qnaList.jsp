@@ -37,7 +37,7 @@
 	
 	<div class="container-board">
               <form class="d-flex" role="search" name=frm action="${pageContext.request.contextPath}/board/qna/qnaList.aws" method="get">
-                <select>
+                <select name="searchType">
                   <option value="subject">제목</option>
                   <option value="writer">작성자</option>
                 </select>

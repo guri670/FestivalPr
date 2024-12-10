@@ -79,7 +79,7 @@
                 <div>
                     <br>
                    <form class="d-flex" role="search" name=frm action="${pageContext.request.contextPath}/board/festival/festivalList.aws" method="get">
-                <select>
+                <select name="searchType">
                   <option value="subject">제목</option>
                   <option value="writer">작성자</option>
                 </select>
